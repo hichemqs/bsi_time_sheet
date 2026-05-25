@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_order_portal_content_inherit" inherit_id="sale.sale_order_portal_content">
+        <xpath expr="//h2" position="replace">
+            <h2>
+                CONTRAT -
+                <em t-out="sale_order.contrat"/>
+            </h2>
+        </xpath>
+        <xpath expr="//span[@id='sale_info_title']/h4" position="replace">
+            <h4 class="mb-1">Informations du contrat</h4>
+        </xpath>
+        <xpath expr="//div[@id='customer_info']/h4" position="replace">
+            <h4 class="mb-1">
+                Facturer à
+                <small t-if="sale_order.partner_id == sale_order.partner_invoice_id == sale_order.env.user.partner_id">
+                    <a class="small" t-attf-href="/my/account?redirect={{sale_order.get_portal_url()}}">
+                        <i class="fa fa-fw fa-pencil"/>
+                    </a>
+                </small>
+            </h4>
+        </xpath>
+        <xpath expr="//div[@id='customer_info']/div[@t-field='sale_order.partner_invoice_id']" position="attributes">
+            <attribute name="t-field">sale_order.paying_customer_id</attribute>
+        </xpath>
+        <xpath expr="//th[@id='subtotal_header']/span" position="replace">
+            <span>Montant total avec les taxes</span>
+        </xpath>
+        <xpath expr="//th[@id='taxes_header']/span" position="replace">
+            <span>Taxes</span>
+        </xpath>
+        <xpath expr="//tbody[@id='sale_info_table']/tr" position="replace">
+            <tr>
+                <th class="ps-0 pb-0">Date du contrat:</th>
+                <td class="w-100 pb-0 text-wrap"><span t-field="sale_order.contract_date" t-options='{"widget": "date"}'/></td>
+            </tr>
+        </xpath>
+        <xpath expr="//tbody[@id='sale_info_table']/tr[2]" position="replace">
+            <tr t-if="sale_order.contract_date">
+                <th class="ps-0 pb-0">Date d'expiration:</th>
+                <td class="w-100 pb-0 text-wrap"><span t-field="sale_order.contract_exp_date"/></td>
+            </tr>
+        </xpath>
+        <xpath expr="//table[@id='sales_order_table']" position="replace">
+            <table t-att-data-order-id="sale_order.id" t-att-data-token="sale_order.access_token" class="table table-sm" id="sales_order_table">
+                <thead class="bg-100">
+                    <tr>
+                        <th class="text-start">Contrat</th>
+                        <t t-if="sale_order.price_type != 'cost'">
+                            <th class="text-end">Montant avant taxes</th>
+                            <th class="text-end"><span>Taxes</span></th>
+                            <th class="text-end"><span>Montant total</span></th>
+                        </t>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>
+                        <span t-field="sale_order.contrat">00000</span><span t-if="sale_order.price_type == 'cost'"> - CONTRAT À FORFAIT</span>
+                    </td>
+                    <t t-if="sale_order.price_type != 'cost'">
+                        <td class="text-end">
+                            <span t-field="sale_order.total_oae"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="sale_order.total_tax_oae"/>
+                        </td>
+                        <td class="text-end">
+                            <span t-field="sale_order.total_with_taxes_oae"/>
+                        </td>
+                    </t>
+                </tbody>
+            </table>
+        </xpath>
+        <xpath expr="//div[@id='total']" position="replace"/>
+        <xpath expr="//section[@t-if='sale_order.payment_term_id']" position="replace"/>
+        <xpath expr="//div[@id='customer_info']" position="inside">
+            <t t-if="sale_order.partner_id and sale_order.paying_customer_id != sale_order.partner_id">
+                <div class="fw-bold mt-3">Client final</div>
+                <hr class="mt-1 mb-2"/>
+                <div t-field="sale_order.partner_id" t-options="{'widget': 'contact', 'fields': ['name', 'address', 'phone', 'email']}"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_menu_sale_inherit" inherit_id="sale.portal_my_home_menu_sale">
+        <xpath expr="//li[@id='portal_breadcrumbs_sale']" position="replace"/>
+        <xpath expr="//li[@t-elif=&quot;page_name == &apos;order&apos; or sale_order and sale_order.state not in (&apos;sent&apos;, &apos;cancel&apos;)&quot;]" position="replace"/>
+        <xpath expr="//ol[@t-if=&quot;page_name != &apos;home&apos;&quot;]/li[1]" position="attributes">
+            <attribute name="t-if">not sale_order</attribute>
+        </xpath>
+        <xpath expr="//li[@t-if='sale_order']" position="replace">
+            <li t-if="sale_order" class="breadcrumb-item active">
+                <span>CONTRAT - </span>
+                <t t-out="sale_order.contrat"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="sale_order_portal_template_inherit" inherit_id="sale.sale_order_portal_template">
+<!--        <xpath expr="//div[@id='sale_order_sidebar_button']/a[@t-if='sale_order._has_to_be_signed()']" position="attributes">-->
+<!--            <attribute name="t-if">sale_order._has_to_be_signed() and (not sale_order.contract_exp_date or datetime.date.today() &lt; sale_order.contract_exp_date)</attribute>-->
+<!--        </xpath>-->
+<!--        <xpath expr="//t[@t-if='sale_order._has_to_be_signed()']" position="attributes">-->
+<!--            <attribute name="t-if">sale_order._has_to_be_signed() and (not sale_order.contract_exp_date or datetime.date.today() &lt; sale_order.contract_exp_date)</attribute>-->
+<!--        </xpath>-->
+        <xpath expr="//main[@id='sign-dialog']//li" position="before">
+            <li t-if="sale_order.opportunity_id">
+                <span>Projet:</span> <b t-field="sale_order.opportunity_id"/>
+            </li>
+            <li t-if="sale_order.contrat">
+                <span>Contrat:</span> <b t-field="sale_order.contrat"/>
+            </li>
+        </xpath>
+        <xpath expr="//t[@t-call='portal.signature_form']/t[@t-set='default_name']" position="attributes">
+            <attribute name="t-value">sale_order.contact_id.name</attribute>
+        </xpath>
+        <xpath expr="//main[@id='sign-dialog']//li[@t-if='sale_order.payment_term_id']" position="replace"/>
+        <xpath expr="//a[hasclass('o_portal_invoice_print')]" position="attributes">
+            <attribute name="t-att-href">sale_order.get_contract_report_url()</attribute>
+        </xpath>
+        <xpath expr="//h2[@t-field='sale_order.amount_total']" position="attributes">
+            <attribute name="t-field">sale_order.total_with_taxes_oae</attribute>
+        </xpath>
+        <xpath expr="//main[@id='sign-dialog']//b[@t-field='sale_order.amount_total']" position="attributes">
+            <attribute name="t-field">sale_order.total_with_taxes_oae</attribute>
+        </xpath>
+        <xpath expr="//main[@id='sign-dialog']//b[@t-field='sale_order.partner_id.commercial_partner_id']" position="attributes">
+            <attribute name="t-field">sale_order.paying_customer_id</attribute>
+        </xpath>
+    </template>
+</odoo>

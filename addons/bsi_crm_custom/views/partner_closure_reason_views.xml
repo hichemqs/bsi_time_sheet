@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_closure_reason_tree" model="ir.ui.view">
+        <field name="name">view.partner.closure.reason.list</field>
+        <field name="model">partner.closure.reason</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_closure_reason_form" model="ir.ui.view">
+        <field name="name">view.partner.closure.reason.form</field>
+        <field name="model">partner.closure.reason</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_closure_reason" model="ir.actions.act_window">
+        <field name="name">Closure reason</field>
+        <field name="res_model">partner.closure.reason</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_partner_closure_reason"
+              name="Closure reason"
+              sequence="1"
+              parent="crm.menu_crm_config_lead"
+              action="action_partner_closure_reason"/>
+</odoo>

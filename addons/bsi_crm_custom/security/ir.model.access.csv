@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_customer_category,access.customer.category,model_res_partner_customer_category,base.group_user,1,1,1,1
+access_partner_closure_reason,access.partner.closure.reason,model_partner_closure_reason,base.group_user,1,1,1,1
+access_partner_closure_reason_wizard,access.partner.closure.reason.wizard,model_partner_closure_reason_wizard,base.group_user,1,1,1,1
+
+access_contact_categorization_wizard,access.contact.categorization.wizard,model_contact_categorization_wizard,base.group_user,1,1,1,1
+access_contact_categorization_history,access.contact.categorization.history,model_contact_categorization_history,base.group_user,1,1,1,1
+access_crm_stage_group,access.crm.stage.group,model_crm_stage_group,base.group_user,1,1,1,1
+access_partner_bloque_vente_wizard,access.partner.bloque.vente.wizard,model_partner_bloque_vente_wizard,base.group_user,1,1,1,1
+access_contact_type,access.contact.type,model_contact_type,base.group_user,1,1,1,1
+access_sale_order_contact_user,sale.order.contact user,model_sale_order_contact,base.group_user,1,1,1,1
+access_contact_role,access.contact.role,model_contact_role,base.group_user,1,1,1,1

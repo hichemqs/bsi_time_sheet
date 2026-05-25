@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_view_team_inherit" model="ir.ui.view">
+        <field name="name">res.partner.view.team.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="sales_team.res_partner_view_team"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']//field[@name='team_id']" position="before">
+                <field name="sales_director_id" widget="many2one_avatar_user"/>
+            </xpath>
+            <xpath expr="//widget[@name='web_ribbon']" position="after">
+                <widget name="web_ribbon" title="Closed" bg_color="text-bg-danger" invisible="not is_closed"/>
+            </xpath>
+<!--            <xpath expr="//field[@name='category_id']" position="after">-->
+<!--                <field name="approval_required"/>-->
+<!--            </xpath>-->
+            <xpath expr="//page[@name='sales_purchases']" position="before">
+                <page string="Categorization" invisible="parent_id">
+                    <group>
+<!--                        <field name="reminder"/>-->
+                        <field name="categ_last_update_date" readonly="1"/>
+                        <field name="is_closed" invisible="1"/>
+                    </group>
+                    <group string="Categorization history">
+                        <field name="categ_history_ids" nolabel="1" colspan="2">
+                            <tree no_open="True">
+                                <field name="potential_recurrence" optional="show"/>
+                                <field name="is_proportion_above_80" string="Util. Barette +80%"  optional="show"/>
+                                <field name="openings_per_year" string="Nb portes/année" optional="show"/>
+                                <field name="customer_category" string="Categorie" optional="show"/>
+                                <field name="last_update_year" optional="show"/>
+                                <field name="customer_id" optional="show"/>
+                                <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+                                <field name="updated_on" optional="show"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+			<xpath expr="//field[@name='category_id']" position="before">
+                <field name="customer_categ_id"/>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="sync_status"  widget="badge" decoration-success="sync_status == 'active'" decoration-danger="sync_status == 'inactive'"/>
+            </xpath>
+            <xpath expr="//group[@name='misc']/field[@name='industry_id']" position="after">
+                <field name="closure_reason_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_partner_form_inherit_ca_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.ca.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="l10n_ca.res_partner_form_inherit_ca"/>
+        <field name="arch" type="xml">
+<xpath expr="//field[@name='image_1920']" position="after">
+    <field name="credit_blocked" invisible="1"/>
+     <!-- <field name="employee_ids" invisible="1"/> -->
+    <field name="sale_blocked" invisible="1"/>
+    <div class="float-end mx-4">
+        <div class="fs-6 badge rounded-pill fw-bold text-bg-info ms-2" invisible="is_closed or sap_number">Prospect</div>
+        <div class="fs-6 badge rounded-pill fw-bold text-bg-info ms-2" invisible="is_closed or not sap_number">Client</div>
+        <div class="fs-6 badge rounded-pill fw-bold text-bg-info ms-2" invisible="1">Contact Client</div>
+        <!-- <div class="fs-6 badge rounded-pill fw-bold text-bg-info ms-2" invisible="not employee_ids">Employé</div> -->
+        <div class="fs-6 badge rounded-pill fw-bold text-bg-danger ms-2" invisible="not credit_blocked">Bloqué crédit</div>
+        <div class="fs-6 badge rounded-pill fw-bold text-bg-danger ms-2" invisible="not sale_blocked">Bloqué vente</div>
+    </div>
+</xpath>
+            <xpath expr="//field[@name='l10n_ca_pst']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='l10n_ca_pst']" position="after">
+                <!-- <field name="sap_number"/> -->
+                <!-- <label for="customer_category" string="Category" invisible="parent_id"/> -->
+                <!-- <div class="o_row" style="width: 70% !important;" invisible="parent_id">
+                    <field name="customer_category" readonly="1" options="{'no_open':True,'no_create': True}"/>
+                    <button name="action_update_category" type="object" string=" Update Category" class="btn-link mb-1 px-0" icon="fa-arrow-right"/>
+                </div> -->
+
+                
+                 <!-- <field name="date_de_creation" string="Date de Création"/> -->
+                <!-- <field name="create_date" string="Customer create date" position="attributes"/> -->
+            </xpath>
+
+            <xpath expr="//field[@name='phone']" position="before">
+                <field name="user_id" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>
+                <field name="sales_director_id" widget="many2one_avatar_user"/>
+                <field string="Termes de paiement" name="property_payment_term_id" options="{'no_open': True, 'no_create': True}" groups="account.group_account_invoice,account.group_account_readonly"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_property_form_inherit" model="ir.ui.view">
+        <field name="name">view.partner.property.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='accounting']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='accounting_disabled']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record id="view_partner_form_inherit_comm_pref" model="ir.ui.view">
+    <field name="name">res.partner.form.communication.preference</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='child_ids']/form//field[@name='function']" position="after">
+            <field name="preference_de_communication"/>
+            <field name="contact_type" required="1"/>
+        </xpath>
+    </field>
+</record> -->
+<record id="res_partner_view_team_1" model="ir.ui.view">
+    <field name="name">res.partner.inherit.stat.button</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//button[@name='action_view_sale_order']" position="after">
+
+    <!-- Bouton Toutes les soumissions -->
+    <button type="object"
+            name="action_view_all_soumissions"
+            class="btn oe_stat_button btn-outline-secondary flex-grow-1"
+            style="cursor: pointer;">
+        <i class="o_button_icon fa fa-fw fa-list"/>
+        <div class="o_field_widget o_readonly_modifier o_field_statinfo">
+            <field name="soumission_count" widget="statinfo" class="o_stat_infoo_stat_value"/>
+            <!-- <span class="o_stat_text">Toutes les soumissions</span> -->
+        </div>
+    </button>
+
+    <!-- Soumissions en cours -->
+    <button type="object"
+            name="action_view_soumission_stage"
+            class="btn oe_stat_button btn-outline-secondary flex-grow-1"
+            style="cursor: pointer;">
+        <i class="o_button_icon fa fa-fw fa-paper-plane"/>
+        <div class="o_field_widget o_readonly_modifier o_field_statinfo">
+            <field name="soumission_count_soumission" widget="statinfo" class="o_stat_info o_stat_value"/>
+            <!-- <span class="o_stat_text">Nombre Soumissions en cours</span> -->
+        </div>
+    </button>
+
+    <!-- Contrats -->
+    <button type="object"
+            name="action_view_contrat_stage"
+            class="btn oe_stat_button btn-outline-secondary flex-grow-1"
+            style="cursor: pointer;">
+        <i class="o_button_icon fa fa-fw fa-file-signature"/>
+        <div class="o_field_widget o_readonly_modifier o_field_statinfo">
+            <field name="soumission_count_contrat" widget="statinfo" class="o_stat_info o_stat_value"/>
+            <!-- <span class="o_stat_text">Nombre de contrat</span> -->
+        </div>
+    </button>
+
+</xpath>
+
+        <xpath expr="//button[@name='action_view_sale_order']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+<xpath expr="//button[@name='action_view_opportunity']/field[@name='opportunity_count']" position="attributes">
+    <attribute name="string">Projets Unique</attribute>
+</xpath>
+
+
+
+
+        <xpath expr="//button[@name='action_view_sale_order']" position="after">
+<button type="object"
+        name="action_view_demande_stage"
+        class="btn oe_stat_button btn-outline-secondary flex-grow-1"
+        style="cursor: pointer;">
+    <i class="o_button_icon fa fa-fw fa-file-text"/>
+    <div class="o_field_widget o_readonly_modifier o_field_statinfo">
+        <field name="soumission_count_demande" widget="statinfo" class="o_stat_info o_stat_value"/>
+    </div>
+</button>
+
+<button type="object"
+        name="action_view_a_configurer_stage"
+        class="btn oe_stat_button btn-outline-secondary flex-grow-1"
+        style="cursor: pointer;">
+    <i class="o_button_icon fa fa-fw fa-cogs"/>
+    <div class="o_field_widget o_readonly_modifier o_field_statinfo">
+        <field name="soumission_count_a_configurer" widget="statinfo" class="o_stat_info o_stat_value"/>
+    </div>
+</button>
+
+<button type="object"
+        name="action_view_contrat_marchand_stage"
+        class="btn oe_stat_button btn-outline-secondary flex-grow-1"
+        style="cursor: pointer;">
+    <i class="o_button_icon fa fa-fw fa-handshake"/>
+    <div class="o_field_widget o_readonly_modifier o_field_statinfo">
+        <field name="soumission_count_contrat_marchand" widget="statinfo" class="o_stat_info o_stat_value"/>
+    </div>
+</button>
+
+        </xpath>
+        <xpath expr="//button[@name='schedule_meeting']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+    </field>
+</record>
+   <record id="partner_view_buttons_hide_invoiced" model="ir.ui.view">
+    <field name="name">partner.view.buttons.hide.invoiced</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[@name='button_box']/button[@name='action_view_partner_invoices']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+    </field>
+</record>
+
+
+    <record id="partner_view_buttons_hide_is_published" model="ir.ui.view">
+    <field name="name">partner.view.buttons.hide.is_published</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="website_partner.view_partners_form_website"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[@name='button_box']/field[@name='is_published']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+    </field>
+</record>
+
+    <record id="view_partner_base_vat_form_inherit" model="ir.ui.view">
+    <field name="model">res.partner</field>
+    <field name="name">view.partner.base.vat.form.inherit</field>
+    <field name="priority">16</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='vat']" position="after">
+            <field name="perform_vies_validation" invisible="1"/>
+            <label for="vat" string="Tax ID"/>
+            <div name="vat_vies_container"/>
+        </xpath>
+        
+        <xpath expr="//div[@name='vat_vies_container']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+
+        <xpath expr="//label[@for='vat']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+    </field>
+</record>
+
+
+
+    <record id="res_partner_form_inherit_header" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.header</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority">15</field>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                 <div class="header_buttons d-flex gap-2 mb-2">
+                     <field name="sales_director_user_id" invisible="1"/>
+                     <button name="action_open_close_partner"
+                            string="Fermer le client"
+                            type="object"
+                            class="btn btn-primary"
+                            modifiers="{'invisible': ['|', ('is_closed', '=', False), ('credit_blocked', '=', False)]}"/>
+
+                    <button name="action_open_credit_block_wizard"
+                            type="object"
+                            class="btn btn-secondary"
+                            context="{'block_type': 'credit'}"
+                            invisible="credit_blocked and (user_id != uid and sales_director_user_id != uid)">
+                        <field name="credit_block_button_label" readonly="1"/>
+                    </button>
+
+                    <button name="action_open_sale_block_wizard"
+                            type="object"
+                            class="btn btn-secondary"
+                            context="{'block_type': 'sale'}"
+                            invisible="sale_blocked and (user_id != uid and sales_director_user_id != uid)">
+                        <field name="sale_block_button_label" readonly="1"/>
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

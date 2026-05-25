@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="close_reason_faillite" model="partner.closure.reason">
+            <field name="name">Faillite</field>
+        </record>
+
+        <record id="close_reason_cessation" model="partner.closure.reason">
+            <field name="name">Cessation d'activité</field>
+        </record>
+
+        <record id="close_reason_dissoute" model="partner.closure.reason">
+            <field name="name">Entreprise dissoute</field>
+        </record>
+
+        <record id="close_reason_ne_construit_plus" model="partner.closure.reason">
+            <field name="name">Client ne construit plus</field>
+        </record>
+
+        <record id="close_reason_fin_projet" model="partner.closure.reason">
+            <field name="name">Fin de projet</field>
+        </record>
+
+        <record id="close_reason_paiement" model="partner.closure.reason">
+            <field name="name">Problème de paiement / dossier en recouvrement</field>
+        </record>
+
+        <record id="close_reason_engagement" model="partner.closure.reason">
+            <field name="name">Manque d’engagement</field>
+        </record>
+
+        <record id="close_reason_relation_rompue" model="partner.closure.reason">
+            <field name="name">Relation rompue par l’entreprise (nous)</field>
+        </record>
+
+        <record id="close_reason_doublon" model="partner.closure.reason">
+            <field name="name">Doublon dans la base de données</field>
+        </record>
+
+        <record id="close_reason_inactif" model="partner.closure.reason">
+            <field name="name">Client inactif depuis longue période</field>
+        </record>
+
+    </data>
+</odoo>

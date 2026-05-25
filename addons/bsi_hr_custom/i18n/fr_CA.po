@@ -1,0 +1,600 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bsi_hr_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20231120\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-26 09:58+0000\n"
+"PO-Revision-Date: 2024-09-26 09:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__agence_de_placement
+msgid "Agence de placement"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__outil_collecte_heures__atlas
+msgid "Atlas"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model_terms:ir.ui.view,arch_db:bsi_hr_custom.view_employee_form_inherit
+msgid "Autre"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__barcode
+msgid "Badge ID"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__is_replacement_needed
+msgid "Besoin remplacement"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__outil_collecte_heures__chonos
+msgid "Chonos"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__coach_id
+msgid "Coach"
+msgstr "Supérieur fonctionnel"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_department__code_dep
+msgid "Code du Département"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__code_metier
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_job__code_metier
+msgid "Code du métier"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__probation__completee
+msgid "Complétée"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__consultant
+msgid "Consultant"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__contraintes_physiques
+msgid "Contraintes Physiques ou autres"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__create_uid
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event_type__create_uid
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_deuxieme_niveau__create_uid
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_premier_niveau__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__create_date
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event_type__create_date
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_deuxieme_niveau__create_date
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_premier_niveau__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__date
+msgid "Date"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__date_anciennete
+msgid "Date ancienneté"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__replacement_date
+msgid "Date de remplacement"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__date_embauche
+msgid "Date embauche"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__applicant_id
+msgid "Demandeur"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model,name:bsi_hr_custom.model_hr_department
+msgid "Department"
+msgstr "Département"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__name
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_deuxieme_niveau__description
+msgid "Description"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model_terms:ir.ui.view,arch_db:bsi_hr_custom.view_situation_emploi_premier_niveau_form
+msgid "Deuxieme niveau"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__deuxieme_niveau
+msgid "Deuxième Niveau"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_premier_niveau__deuxieme_niveau_ids
+msgid "Deuxième Niveau Records"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__display_name
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event_type__display_name
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_deuxieme_niveau__display_name
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_premier_niveau__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model,name:bsi_hr_custom.model_hr_employee
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__employee_id
+msgid "Employee"
+msgstr "Employé"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__outil_collecte_heures__excel
+msgid "Excel"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__salaire__fix
+msgid "Fix"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__grandeur_vetements
+msgid "Grandeur de vêtements"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model_terms:ir.ui.view,arch_db:bsi_hr_custom.view_employee_form_inherit
+msgid "HR Settings"
+msgstr "Paramètre TI"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__salaire__horaire
+msgid "Horaire"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model,name:bsi_hr_custom.model_hr_event_type
+msgid "Hr event types"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model,name:bsi_hr_custom.model_hr_event
+msgid "Hr events"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__tele_travail__hybride
+msgid "Hybride"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__id
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event_type__id
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_deuxieme_niveau__id
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_premier_niveau__id
+msgid "ID"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,help:bsi_hr_custom.field_hr_employee__barcode
+msgid "ID used for employee identification."
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model,name:bsi_hr_custom.model_hr_job
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__job_id
+msgid "Job Position"
+msgstr "Poste de travail"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__justification_anciennete
+msgid "Justification d'ancienneté"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__write_uid
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event_type__write_uid
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_deuxieme_niveau__write_uid
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_premier_niveau__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__write_date
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event_type__write_date
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_deuxieme_niveau__write_date
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_premier_niveau__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__type_main_oeuvre__mod
+msgid "MOD"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__type_main_oeuvre__moi
+msgid "MOI"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__parent_id
+msgid "Manager"
+msgstr "Supérieur immédiat"
+
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__mobile
+msgid "Mobile"
+msgstr "# de cellulaire personnel"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__probation__n_a
+msgid "N/A ou intégration"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_deuxieme_niveau__name
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_premier_niveau__name
+msgid "Name"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event_type__name
+msgid "Nom"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__tele_travail__non
+msgid "Non"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__type_emploi__non_syndique_bureau
+msgid "Non syndiqué - Bureau"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__type_emploi__non_syndique_usine
+msgid "Non syndiqué - Usine"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__note
+msgid "Note"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model_terms:ir.ui.view,arch_db:bsi_hr_custom.view_employee_form_inherit
+msgid "Notes"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__tele_travail__oui
+msgid "Oui"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__outil_collecte_heures
+msgid "Outil de collecte d'heures"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_job__is_key_position
+msgid "Poste clé"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_job__is_critical_position
+msgid "Poste critique"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__poste_vacants_budgete
+msgid "Poste vacants budgété"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_job__is_external_position
+msgid "Poste à combler externe"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_situation_emploi_deuxieme_niveau__premier_niveau_id
+msgid "Premier Niveau"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__probation
+msgid "Probation"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__preretraite
+msgid "Préretraite"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_department__responsible_id
+msgid "Responsable de paie"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__regulier
+msgid "Régulier"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__is_manager
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_job__is_manager
+msgid "Rôle de gestionnaire"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__is_functional_supervisor
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_job__is_functional_supervisor
+msgid "Rôle de supérieur fonctionnel"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__type_main_oeuvre__sop
+msgid "SOP"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__salaire
+msgid "Salaire"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,help:bsi_hr_custom.field_hr_employee__coach_id
+msgid ""
+"Select the \"Employee\" who is the coach of this employee.\n"
+"The \"Coach\" has no specific rights or responsibilities by default."
+msgstr ""
+"Sélectionnez la personne qui est le mentor de cet employé.\n"
+"Le mentor n'a pas de droits spécifiques ou de responsabilités par défaut. "
+
+#. module: bsi_hr_custom
+#: model:ir.model,name:bsi_hr_custom.model_situation_emploi_premier_niveau
+msgid "Situation Emploi 1er Niveau"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model,name:bsi_hr_custom.model_situation_emploi_deuxieme_niveau
+msgid "Situation Emploi 2e Niveau"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.actions.act_window,name:bsi_hr_custom.action_situation_emploi_premier_niveau
+#: model:ir.ui.menu,name:bsi_hr_custom.menu_situation_emploi_premier_niveau
+msgid "Situation d'emploi"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__se_deuxieme_niveau_id
+msgid "Situation d'emploi deuxième niveau"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__se_premier_niveau_id
+msgid "Situation d'emploi premier niveau"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__employee_type
+msgid "Statut employé"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__student
+msgid "Student"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model_terms:ir.ui.view,arch_db:bsi_hr_custom.view_employee_form_inherit
+msgid "Supérieur fonctionnel"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__sur_appel
+msgid "Sur appel"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__type_emploi__syndique
+msgid "Syndiqué"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__temporaire
+msgid "Temporaire"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__temps_partiel
+msgid "Temps partiel"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,help:bsi_hr_custom.field_hr_employee__employee_type
+msgid ""
+"The employee type. Although the primary purpose may seem to categorize "
+"employees, this field has also an impact in the Contract History. Only "
+"Employee type is supposed to be under contract and will have a Contract "
+"History."
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__trainee
+msgid "Trainee"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__employee_type__tet
+msgid "Travailleur étranger temporaire (TET)"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__type_emploi
+msgid "Type d'emploi"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__type_main_oeuvre
+msgid "Type de Main - d'œuvre"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.actions.act_window,name:bsi_hr_custom.action_hr_event_type
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_event__event_type_id
+#: model:ir.ui.menu,name:bsi_hr_custom.menu_hr_event_type
+msgid "Type événement"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__tele_travail
+msgid "Télétravail"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__grandeur_vetements__xl
+msgid "XL"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__grandeur_vetements__xs
+msgid "XS"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__grandeur_vetements__xxl
+msgid "XXL"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__grandeur_vetements__xxxl
+msgid "XXXL"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields.selection,name:bsi_hr_custom.selection__hr_employee__probation__en_cours
+msgid "en cours"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_employee__hr_event_ids
+#: model_terms:ir.ui.view,arch_db:bsi_hr_custom.view_employee_form_inherit
+msgid "Événement"
+msgstr ""
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:hr.field_hr_department__company_id
+#: model:ir.model.fields,field_description:hr.field_hr_employee__company_id
+#: model:ir.model.fields,field_description:hr.field_hr_employee_base__company_id
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__company_id
+#: model:ir.model.fields,field_description:hr.field_hr_job__company_id
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_sector__company_id
+#: model:ir.model.fields,field_description:hr.field_hr_work_location__company_id
+#: model_terms:ir.ui.view,arch_db:hr.hr_employee_public_view_search
+#: model_terms:ir.ui.view,arch_db:hr.view_job_filter
+msgid "Company"
+msgstr "Localisation"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:bsi_hr_custom.field_hr_sector__company_ids
+msgid "Companies"
+msgstr "Localisations"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:hr.field_hr_employee__mobile_phone
+#: model:ir.model.fields,field_description:hr.field_hr_employee_base__mobile_phone
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__mobile_phone
+#: model:ir.model.fields,field_description:hr.field_res_users__mobile_phone
+msgid "Work Mobile"
+msgstr "# de cellulaire professionnel"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:hr.field_hr_employee__work_phone
+#: model:ir.model.fields,field_description:hr.field_hr_employee_base__work_phone
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__work_phone
+#: model:ir.model.fields,field_description:hr.field_res_users__work_phone
+msgid "Work Phone"
+msgstr "# téléphone professionnel"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:hr.field_hr_employee__work_email
+#: model:ir.model.fields,field_description:hr.field_hr_employee_base__work_email
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__work_email
+#: model:ir.model.fields,field_description:hr.field_res_users__work_email
+msgid "Work Email"
+msgstr "Courriel professionnel"
+
+#. module: bsi_hr_custom
+#: model:ir.model.fields,field_description:hr.field_hr_employee__private_email
+#: model:ir.model.fields,field_description:hr.field_res_users__private_email
+msgid "Private Email"
+msgstr "Courriel personnel"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__private_phone
+#: model:ir.model.fields,field_description:hr.field_res_users__private_phone
+msgid "Private Phone"
+msgstr "# de téléphone personnel"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__emergency_phone
+#: model:ir.model.fields,field_description:hr.field_res_users__emergency_phone
+msgid "Contact Phone"
+msgstr "# de téléphone du contact d'urgence"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__barcode
+#: model:ir.model.fields,field_description:hr.field_res_users__barcode
+msgid "Badge ID"
+msgstr "# d'employé"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee__pin
+#: model:ir.model.fields,field_description:hr.field_res_users__pin
+msgid "PIN"
+msgstr "Carte d'accès/Horodateur"
+
+#. module: hr
+#: model:ir.model,name:hr.model_res_users
+#: model:ir.model.fields,field_description:hr.field_hr_employee__user_id
+#: model:ir.model.fields,field_description:hr.field_hr_employee_base__user_id
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__user_id
+#: model:ir.model.fields,field_description:hr.field_resource_resource__user_id
+msgid "User"
+msgstr "Compte d'accès utilisateur"

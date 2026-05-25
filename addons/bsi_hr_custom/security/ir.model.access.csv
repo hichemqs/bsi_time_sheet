@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_situation_emploi_premier_niveau,access.situation.emploi.premier.niveau,model_situation_emploi_premier_niveau,,1,1,1,1
+access_situation_emploi_deuxieme_niveau,access.situation.emploi.deuxieme.niveau,model_situation_emploi_deuxieme_niveau,,1,1,1,1
+access_hr_event,access.hr.event,model_hr_event,,1,1,1,1
+access_hr_event_type,access.hr.event.type,model_hr_event_type,,1,1,1,1
+access_hr_sector,access.hr.sector,model_hr_sector,,1,1,1,1

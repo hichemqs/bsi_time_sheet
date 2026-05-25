@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_closure_reason_wizard" model="ir.ui.view">
+        <field name="name">view.partner.closure.reason.wizard</field>
+        <field name="model">partner.closure.reason.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="close_reason_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_close_partner" string="Confirm" type="object" class="oe_highlight"/>
+                    <button special="cancel" string="Cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+<!--    <record id="action_partner_closure_reason_wizard" model="ir.actions.act_window">-->
+<!--        <field name="name">Closure reason</field>-->
+<!--        <field name="res_model">partner.closure.reason.wizardy</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--    </record>-->
+</odoo>

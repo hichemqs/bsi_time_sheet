@@ -1,0 +1,352 @@
+<odoo>
+    <record id="view_partner_form_inherited" model="ir.ui.view">
+        <field name="name">res.partner.form.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            
+            <!-- <xpath expr="//field[@name='company_type']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath> -->
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='image_1920']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group/group[2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='mobile']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='ref']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- <xpath expr="//field[@name='sales_director_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath> -->
+            
+            <xpath expr="//field[@name='lang']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='active']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='property_payment_term_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='street']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='street2']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='city']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='state_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='zip']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='country_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//span[@name='address_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='child_ids']//form//field[@name='city']" position="attributes">
+                <attribute name="invisible">country_enforce_cities and (city_id or city in ('', False))</attribute>
+                <attribute name="readonly">type == 'contact' and parent_id</attribute>
+                <attribute name="string">Ville</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='contact_addresses']//field[@name='child_ids']" position="inside">
+                <tree>
+                    <field name="complete_name"/>
+                    <field name="user_id" optional="show"/>
+                    <field name="phone" optional="show"/>
+                    <field name="email" optional="show"/>
+                    <field name="category_id" widget="many2many_tags" optional="show"/>
+                    <field name="date_de_creation" optional="hide"/>
+                    <field name="contact_type" optional="show"/>
+                    <button
+                        name="action_archive"
+                        type="object"
+                        string="Archiver"
+                        confirm="Êtes-vous sûr de vouloir archiver ce contact ?"
+                    />
+                </tree>
+            </xpath>
+
+            <xpath expr="//h1//field[@name='name']" position="attributes">
+                <attribute name="readonly">sap_number and not is_account_manager</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='child_ids']//form//field[@name='name']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='child_ids']//form//field[@name='phone']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='child_ids']//form//field[@name='email']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+
+            <xpath expr="//sheet/div[@class='oe_title mb24']" position="after">
+                <group string="Coordonnées">
+                    <field name="is_account_manager" invisible="1"/>
+                    <field name="sales_director_user_id" invisible="1"/>
+                   <group>
+                        <field name="street" class="o_address_street" placeholder="Rue..." required="0"/>
+<!--                        <field name="street2" class="o_address_street" placeholder="Rue 2..." readonly="sap_number and not is_account_manager"/>-->
+                       <field name="street2" class="o_address_street" placeholder="Rue 2..."/>
+                       <field name="country_enforce_cities" invisible="1" required="0"/>
+                       <field name="city_id" string="Ville" placeholder="City" class="o_address_city" domain="[('country_id', '=', country_id)]" invisible="not country_enforce_cities" readonly="type == 'contact' and parent_id" context="{'default_country_id': country_id, 'default_state_id': state_id, 'default_zipcode': zip}"/>
+<!--                        <field name="city_id" string="Ville" placeholder="City" class="o_address_city" domain="[('country_id', '=', country_id)]" invisible="not country_enforce_cities" readonly="(sap_number and not is_account_manager) or (type == 'contact' and parent_id)" context="{'default_country_id': country_id, 'default_state_id': state_id, 'default_zipcode': zip}"/>-->
+<!--                        <field name="city" readonly="(sap_number and not is_account_manager) or (type == 'contact' and parent_id)" required="not country_enforce_cities" invisible="country_enforce_cities and (city_id or city in ('', False))" class="o_address_city"-->
+<!--                               placeholder="Ville"/>-->
+                       <field name="city" readonly="type == 'contact' and parent_id" invisible="country_enforce_cities and (city_id or city in ('', False))" class="o_address_city"
+                               placeholder="Ville"/>
+                        <field name="state_id" class="o_address_state"
+                               placeholder="Province"
+                               string="Province"
+                               context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"
+                               options="{'no_open': True, 'no_quick_create': True}"
+                               domain="[('country_id.code', '=', 'CA')]" required="0"/>
+                        <field name="zip" class="o_address_zip"
+                               placeholder="Code postale" required="0"/>
+                        <field name="country_id" class="o_address_country"
+                               placeholder="Pays"
+                               options="{'no_open': True, 'no_create': True}" required="0"/>
+                   </group>
+
+                    <group>
+                        <field name="phone" widget="phone" required="1"/>
+                        <field name="mobile" widget="phone"/>
+                        <field name="email" widget="email" required="not is_company"/>
+                        <field name="website" string="Website" widget="url"/>
+                    </group>
+                </group>
+
+                <group string="Information Générale">
+                    <group>
+                        <field name="sap_number" readonly="not is_account_manager"/>
+                        <label for="customer_category" string="Catégorie" invisible="parent_id"/>
+                        <div class="o_row" style="width: 70% !important;" invisible="parent_id">
+                            <field name="customer_category" readonly="1" options="{'no_open':True,'no_create': True}"/>
+                            <button name="action_update_category" invisible="company_type == 'person' or (customer_category not in ['uncategorized', 'c'] and user_id != uid)" type="object" string=" Update Category" class="btn-link mb-1 px-0" icon="fa-arrow-right"/>
+                        </div>
+                        <field name="show_openings_current_year" widget="text" readonly="1"/>
+                        <field name="customer_categ_id" options="{'no_open':True,'no_create': True}" required="0"/>
+                    </group>
+                    <group>
+                        <field name="date_de_creation" string="Date de création" readonly="1"/>
+                        <field name="lang"/>
+                    </group>
+                </group>
+
+                <group string="Données de Ventes">
+                    <group>
+<field name="user_id"
+       widget="many2one_avatar_user"
+       domain="[('share', '=', False)]"
+       string="Représentant FC"
+       readonly="customer_category not in ['uncategorized', 'c'] and (user_id != uid and sales_director_user_id != uid)" required="0"/>
+                        <field name="is_officer" invisible="1"/>
+
+                        <field name="sales_director_id" string="Directeur de ventes"/>
+                            <field name="sync_status" widget="badge" string="État"/>
+                    </group>
+                    
+                    <group>
+                        <field name="category_id" widget="many2many_tags" required="0"/>
+                        <field name="property_payment_term_id" options="{'no_open': True, 'no_create': True}" readonly="not is_account_manager" required="0"/>
+                </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+<record id="view_partner_form_inherit_contacts" model="ir.ui.view">
+    <field name="name">res.partner.form.child_ids.tree</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='child_ids']" position="attributes">
+            <attribute name="mode">tree</attribute>
+        </xpath>
+    </field>
+</record>
+
+<record id="view_partner_tree_search_inherit" model="ir.ui.view">
+    <field name="name">res.partner.tree.search.inherit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//tree/field[@name='user_id']" position="attributes">
+            <attribute name="readonly">customer_category not in ['uncategorized', 'c'] and (user_id != uid and sales_director_user_id != uid)</attribute>
+            <attribute name="required">1</attribute>
+        </xpath>
+        <xpath expr="//tree/field[@name='user_id']" position="after">
+<!--            <field name="active"/>-->
+            <field name="is_account_manager" column_invisible="1"/>
+            <field name="sales_director_user_id" column_invisible="1"/>
+            <field name="sales_director_id" optional="hide"/>
+            <field name="sap_number" optional="hide" readonly="not is_account_manager"/>
+            <field name="activity_ids" optional="show" widget="many2many_tags"/>
+            <field name="my_activity_date_deadline" optional="show"/>
+            <field name="activity_user_id" optional="show"/>
+            <field name="customer_category" string="Catégorie"/>
+            <field name="customer_categ_id" required="0" optional="hide"/>
+            <field name="date_de_creation" optional="hide"/>
+            <field name="credit_blocked" readonly="credit_blocked and (user_id != uid and sales_director_user_id != uid)" string="Bloqué crédit" optional="hide"/>
+            <field name="sale_blocked" readonly="sale_blocked and (user_id != uid and sales_director_user_id != uid)" string="Bloqué vente" optional="hide"/>
+            <field name="sync_status" string="État"/>
+            <field name="contact_type" required="0" optional="hide"/>
+            <field name="is_prospect" optional="hide"/>
+            <field name="is_closed" optional="hide"/>
+            <field name="company_type" column_invisible="1"/>
+        </xpath>
+        <xpath expr="//tree/field[@name='user_id']" position="attributes">
+            <attribute name="string">Représentant FC</attribute>
+        </xpath>
+        <xpath expr="//tree/field[@name='mobile']" position="attributes">
+            <attribute name="column_invisible">1</attribute>
+        </xpath>
+        <xpath expr="//tree/field[@name='phone']" position="attributes">
+            <attribute name="column_invisible">1</attribute>
+        </xpath>
+        <xpath expr="//tree/field[@name='email']" position="attributes">
+            <attribute name="column_invisible">1</attribute>
+        </xpath>
+        <xpath expr="//tree/field[@name='city']" position="attributes">
+            <attribute name="column_invisible">1</attribute>
+        </xpath>
+        <xpath expr="//tree/field[@name='country_id']" position="attributes">
+            <attribute name="column_invisible">1</attribute>
+        </xpath>
+        <xpath expr="//tree/field[@name='state_id']" position="attributes">
+            <attribute name="column_invisible">1</attribute>
+        </xpath>
+        <xpath expr="//tree/field[@name='vat']" position="attributes">
+            <attribute name="column_invisible">1</attribute>
+        </xpath>
+    </field>
+</record>
+
+
+<record id="view_partner_child_contact_form_custom" model="ir.ui.view">
+    <field name="name">res.partner.child.contact.form.custom</field>
+    <field name="model">res.partner</field>
+    <field name="arch" type="xml">
+        <form string="Contact">
+                <sheet>
+                    <div class="oe_title mb24">
+                        <field name="active" invisible="1"/>
+                        <field name="type" invisible="1"/>
+                        <field name="user_ids" invisible="1"/>
+                        <field name="user_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="company_name" invisible="1"/>
+                        <field name="is_company" invisible="1"/>
+                        <field name="country_code" invisible="1"/>
+                        <field name="company_type" invisible="1"/>
+                        <h1>
+                            <field id="individual" options="{'line_breaks': False}" widget="text" class="text-break" name="name" default_focus="1" placeholder="e.g. Brandom Freeman"  required="type == 'contact'"/>
+                        </h1>
+                                <div class="o_row">
+                            <field name="parent_id" widget="res_partner_many2one" placeholder="Company Name..." domain="[('is_company', '=', True)]" context="{'default_is_company': True, 'show_vat': True, 'default_user_id': user_id}" invisible="((is_company and not parent_id) or company_name) and company_name != ''"/>
+                        </div>
+                    </div>
+
+        <group string="Coordonnées">
+                    <field name="is_account_manager" invisible="1"/>
+                    <field name="sales_director_user_id" invisible="1"/>
+                   <group>
+                        <field name="street" class="o_address_street" placeholder="Rue..." required="0"/>
+                       <field name="street2" class="o_address_street" placeholder="Rue 2..."/>
+                       <field name="country_enforce_cities" invisible="1" required="0"/>
+                       <field name="city_id" string="Ville" placeholder="City" class="o_address_city" domain="[('country_id', '=', country_id)]" invisible="not country_enforce_cities" context="{'default_country_id': country_id, 'default_state_id': state_id, 'default_zipcode': zip}"/>
+                       <field name="city"  invisible="country_enforce_cities and (city_id or city in ('', False))" class="o_address_city"
+                               placeholder="Ville"/>
+                        <field name="state_id" class="o_address_state"
+                               placeholder="Province"
+                               string="Province"
+                               context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"
+                               options="{'no_open': True, 'no_quick_create': True}"
+                               domain="[('country_id.code', '=', 'CA')]" required="0"/>
+                        <field name="zip" class="o_address_zip"
+                               placeholder="Code postale" required="0"/>
+                        <field name="country_id" class="o_address_country"
+                               placeholder="Pays"
+                               options="{'no_open': True, 'no_create': True}" required="0"/>
+                   </group>
+
+                    <group>
+                        <field name="phone" widget="phone" required="1"/>
+                        <field name="mobile" widget="phone"/>
+                        <field name="email" widget="email" required="1"/>
+                        <field name="website" string="Website" widget="url"/>
+                    
+                        <field name="popup_contact_type_id"
+                               invisible="context.get('use_contact_type', False) or context.get('sale_order_contact_line_id')"
+                               required="not context.get('use_contact_type', False) and not context.get('sale_order_contact_line_id')"/>
+                    
+                        <field name="role_du_contact"
+                               invisible="context.get('use_contact_type', False) or not context.get('sale_order_contact_line_id')"
+                               required="not context.get('use_contact_type', False) and context.get('sale_order_contact_line_id')"/>
+                    
+                        <field name="contact_type"
+                               invisible="not context.get('use_contact_type', False)"
+                               required="context.get('use_contact_type', False)"/>
+                    </group>
+                </group>
+
+                </sheet>
+        </form>
+    </field>
+</record>
+
+
+<record id="view_partner_form_inherit_full_contact" model="ir.ui.view">
+    <field name="name">res.partner.form.inherit.full.contact</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='child_ids']/form" position="replace"/>
+        <xpath expr="//field[@name='child_ids']" position="attributes">
+            <attribute name="context">
+                {
+                    'default_parent_id': active_id,
+                    'default_type': 'contact',
+                    'form_view_ref': 'bsi_crm_custom.view_partner_child_contact_form_custom',
+                    'active_test': False,
+                    'use_contact_type': True
+                }
+            </attribute>
+            <attribute name="options">{'delete': False}</attribute>
+        </xpath>
+    </field>
+</record>
+
+</odoo>

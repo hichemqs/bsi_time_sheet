@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="res_config_settings_view_form_inherit_bs_crm" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.inherit.bs.crm</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="base.res_config_settings_view_form" />
+    <field name="arch" type="xml">
+        <xpath expr="//div[@id='contacts_settings']" position="inside">
+            <div class="row mt16 o_settings_container">
+                <div class="o_setting_box col-12 col-lg-6 o_searchable_setting">
+                    <div class="o_setting_right_pane">
+                        <label for="nombre_jours_inactifs" class="o_form_label">Nombre des jours inactifs</label>
+                        <div class="text-muted mb-2">Nombre de jours avant qu'un contact soit considéré inactif.</div>
+                        <div class="w-100">
+                            <field name="nombre_jours_inactifs" class="w-100"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </field>
+</record>
+<record id="res_config_settings_view_form_inherit_mfiles_crm" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.inherit.mfiles.crm</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="crm.res_config_settings_view_form" />
+    <field name="arch" type="xml">
+        <block name="convert_visitor_setting_container" position="before">
+            <block title="M-Files">
+                <setting string="Username" help="Nom d'utilisateur pour M-Files">
+                    <field name="mfiles_username"/>
+                </setting>
+                <setting string="Password" help="Mot de passe pour M-Files">
+                    <field name="mfiles_password" password="True"/>
+                </setting>
+                <setting string="Base URL" help="URL de base">
+                    <field name="mfiles_baseurl"/>
+                </setting>
+                <setting string="Vault GUID" help="Identifiant vaultGUID">
+                    <field name="mfiles_vaultguid"/>
+                </setting>
+            </block>
+        </block>
+    </field>
+</record>
+
+
+    <record id="res_config_settings_view_form_inherit_base_url_crm" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.inherit.base.url.crm</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="crm.res_config_settings_view_form" />
+    <field name="arch" type="xml">
+        <block name="convert_visitor_setting_container" position="before">
+            <block title="Connexion OAE">
+                <setting string="Base URL" help="Connexion OAE Base URL">
+                    <field name="connexion_oae_baseurl"/>
+                </setting>
+            </block>
+        </block>
+    </field>
+</record>
+
+
+</odoo>

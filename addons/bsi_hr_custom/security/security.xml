@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Groups -->
+    <record id="group_regenerate_empl_code" model="res.groups">
+        <field name="name">Régénérer un code employé</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
+    <!-- Rules -->
+    <record id="hr_sector_company_rule" model="ir.rule">
+        <field name="name">Hr Sector Multi-Company</field>
+        <field name="model_id" ref="model_hr_sector"/>
+        <field name="domain_force">['|', ('company_ids', '=', False), ('company_ids', 'in', company_ids)]</field>
+    </record>
+
+    <record id="employee_supervision_rule" model="ir.rule">
+        <field name="name">Employee Supervision Rule</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="groups" eval="[(4, ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[('sector_id', 'in', user.allowed_sector_ids.ids)]</field>
+<!--        <field name="domain_force">[('sector_id', 'in', user.allowed_sector_ids.ids), '|', ('id', 'in', user.partner_id.employee_ids.ids), '&amp;', ('parent_id', '!=', False), ('parent_id', 'child_of', user.partner_id.employee_ids.ids)]</field>-->
+    </record>
+
+    <record id="employee_manager_supervision_rule" model="ir.rule">
+        <field name="name">Employee Manager Supervision Rule</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]"/>
+    </record>
+</odoo>

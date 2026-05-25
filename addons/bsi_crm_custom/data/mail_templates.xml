@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        <record id="quotation_not_finalized" model="mail.template">-->
+<!--            <field name="name">Ventes: Soumission non finalisé</field>-->
+<!--            <field name="model_id" ref="sale.model_sale_order"/>-->
+<!--            <field name="subject">Soumission {{ object.name }} NON-FINALISÉ</field>-->
+<!--            <field name="email_from">{{ (object.user_id.email_formatted or object.company_id.email_formatted or user.email_formatted) }}</field>-->
+<!--            <field name="partner_to">{{ object.partner_id.id }}</field>-->
+<!--            <field name="body_html" type="html">-->
+<!--                <div style="margin: 0px; padding: 0px;">-->
+<!--                    <p style="margin: 0px; padding: 0px; font-size: 12px;">-->
+<!--                        Bonjour,-->
+<!--                        <br/><br/>-->
+<!--                        Voici votre soumission au montant de <span style="font-weight:bold;" t-out="format_amount(object.total_oae, object.currency_id) or ''">$ 10.00</span>-->
+<!--                        avant taxe.-->
+<!--                        <br/>-->
+<!--                        Attention cette soumission est NON-FINALISÉ, <br/>-->
+<!--                        ******Attention vous devez attendre votre soumission finale pour confirmer la commande ******-->
+<!--                        <br/><br/>-->
+<!--                        N’hésitez pas a me contacter si vous avez des questions.-->
+<!--                        <br/><br/>-->
+<!--                        Merci-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="quotation_finalized" model="mail.template">
+            <field name="name">Ventes: Soumission finalisé</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="subject">Soumission – {{ object.opportunity_id.name }}</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.contact_id.id }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 12px;">
+                        Bonjour,
+                        <br/><br/>
+                        Veuillez trouver ci-joint notre soumission pour le projet « <span style="font-weight:bold;" t-esc="object.opportunity_id.name"/> ».
+                        <br/>
+                        N’hésitez pas a me contacter si vous avez des questions.
+                        <br/><br/>
+                        Merci
+                        <t t-if="not is_html_empty(object.user_id.signature)">
+                            <br/><br/>
+                            <t t-out="object.user_id.signature or ''">--<br/>Mitchell Admin</t>
+                        </t>
+                        <br/><br/>
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="contract_finalized" model="mail.template">
+            <field name="name">Ventes: Contrat finalisé</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="subject">Contrat {{ object.contrat }}, pour signature</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.contact_id.id }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 12px;">
+                        Bonjour,
+                        <br/><br/>
+                        Veuillez trouver ci-joint notre contrat pour le projet « <span style="font-weight:bold;" t-esc="object.opportunity_id.name"/> ».
+                        <br/>
+                        Nous vous prions de le signer et de nous le retourner au plus tard le <span style="font-weight:bold;" t-out="object.contract_exp_date or ''"/> afin d'éviter tout retard de livraison.
+                        <br/><br/>
+                        Merci
+                        <t t-if="not is_html_empty(object.user_id.signature)">
+                            <br/><br/>
+                            <t t-out="object.user_id.signature or ''">--<br/>Mitchell Admin</t>
+                        </t>
+                        <br/><br/>
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

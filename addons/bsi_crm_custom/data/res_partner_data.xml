@@ -1,0 +1,31 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_open_close_partner" model="ir.actions.server">
+    <field name="name">Toggle Client Status</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="binding_model_id" ref="base.model_res_partner"/>
+    <field name="binding_view_types">form</field>
+    <field name="state">code</field>
+    <field name="code">action=records.action_open_close_partner()</field>
+    <field name="groups_id" eval="[(4, ref('account.group_account_manager'))]"/>
+    </record>
+
+    <record id="action_credit_blocked" model="ir.actions.server">
+        <field name="name">Toggle Credit Blocked</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">action=records.action_open_credit_block_wizard()</field>
+    </record>
+
+    <record id="action_open_sale_blocked" model="ir.actions.server">
+        <field name="name">Toggle Sale Blocked</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">action=records.action_open_sale_block_wizard()</field>
+    </record>
+</odoo>
+ -->

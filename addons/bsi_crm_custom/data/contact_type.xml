@@ -1,0 +1,1043 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="contact_type_propriétaire" model="contact.type">
+        <field name="name">Propriétaire</field>
+    </record>
+            <record id="contact_type_propriétaire_contact_livraison" model="contact.type">
+        <field name="name">Propriétaire/contact livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_contact_livraison_menuisier" model="contact.type">
+        <field name="name">Propriétaire/contact livraison/menuisier</field>
+    </record>
+    <record id="contact_type_propriétaire_entrepreneur_contact_livraison" model="contact.type">
+        <field name="name">Propriétaire/entrepreneur/contact livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet" model="contact.type">
+        <field name="name">Chargé de projet</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_contact_livraison" model="contact.type">
+        <field name="name">Chargé de projet - Contact livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_estimateur" model="contact.type">
+        <field name="name">Chargé de projet - Estimateur</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_contact_livraison_slash" model="contact.type">
+        <field name="name">Chargé de projet/contact livraison</field>
+    </record>
+    <record id="contact_type_chargée_de_projet" model="contact.type">
+        <field name="name">Chargée de projet</field>
+    </record>
+    <record id="contact_type_chargée_de_projet_contact_livraison" model="contact.type">
+        <field name="name">Chargée de projet - Contact livraison</field>
+    </record>
+    <record id="contact_type_chargée_de_projet_contact_livraison_slash" model="contact.type">
+        <field name="name">Chargée de projet/contact livraison</field>
+    </record>
+    <record id="contact_type_cingenieur_et_contact_livraison" model="contact.type">
+        <field name="name">cingenieur et contact livraison</field>
+    </record>
+    <record id="contact_type_contact_livraison" model="contact.type">
+        <field name="name">contact livraison</field>
+    </record>
+    <record id="contact_type_contact_livraison_logistique" model="contact.type">
+        <field name="name">contact livraison (Logistique)</field>
+    </record>
+    <record id="contact_type_contact_livraison_menuisier" model="contact.type">
+        <field name="name">contact livraison / menuisier</field>
+    </record>
+    <record id="contact_type_contact_livraison_propriétaire" model="contact.type">
+        <field name="name">contact livraison / Propriétaire</field>
+    </record>
+    <record id="contact_type_entrepreneur_contact_livraison" model="contact.type">
+        <field name="name">entrepreneur/contact livraison</field>
+    </record>
+    <record id="contact_type_estimateur" model="contact.type">
+        <field name="name">Estimateur</field>
+    </record>
+    <record id="contact_type_estimateur_matériaux" model="contact.type">
+        <field name="name">Estimateur/matériaux</field>
+    </record>
+    <record id="contact_type_president_et_contact_livraison" model="contact.type">
+        <field name="name">president et contact livraison</field>
+    </record>
+    <record id="contact_type_president_plus_contact_livraison" model="contact.type">
+        <field name="name">president+ contact livraison</field>
+    </record>
+    <record id="contact_type_propriétaire" model="contact.type">
+        <field name="name">Propriétaire</field>
+    </record>
+    <record id="contact_type_propriétaire_contact_livraison_dash" model="contact.type">
+        <field name="name">Propriétaire - Contact livraison</field>
+    </record>
+    <record id="contact_type_a_cocher" model="contact.type">
+        <field name="name">A cocher</field>
+    </record>
+    <record id="contact_type_achat_et_livraison" model="contact.type">
+        <field name="name">achat et livraison</field>
+    </record>
+    <record id="contact_type_acheteur" model="contact.type">
+        <field name="name">Acheteur</field>
+    </record>
+    <record id="contact_type_acheteur_plus_contact_livraison" model="contact.type">
+        <field name="name">Acheteur + Contact Livraison</field>
+    </record>
+    <record id="contact_type_acheteur_materiaux" model="contact.type">
+        <field name="name">Acheteur materiaux</field>
+    </record>
+    <record id="contact_type_acheteur_propriétaire" model="contact.type">
+        <field name="name">Acheteur/Propriétaire</field>
+    </record>
+    <record id="contact_type_acheteure" model="contact.type">
+        <field name="name">Acheteure</field>
+    </record>
+    <record id="contact_type_actionnaire" model="contact.type">
+        <field name="name">Actionnaire</field>
+    </record>
+    <record id="contact_type_adj_administrative" model="contact.type">
+        <field name="name">adj administrative</field>
+    </record>
+    <record id="contact_type_adjointe" model="contact.type">
+        <field name="name">adjointe</field>
+    </record>
+    <record id="contact_type_adjointe_estimation" model="contact.type">
+        <field name="name">Adjointe à l'estimation</field>
+    </record>
+    <record id="contact_type_adjointe_estimation_lower" model="contact.type">
+        <field name="name">adjointe à l'estimation</field>
+    </record>
+    <record id="contact_type_adjointe_administratif" model="contact.type">
+        <field name="name">Adjointe Administratif</field>
+    </record>
+    <record id="contact_type_adjointe_administrative" model="contact.type">
+        <field name="name">Adjointe Administrative</field>
+    </record>
+    <record id="contact_type_adjointe_chargé_projet" model="contact.type">
+        <field name="name">adjointe Chargé de projet</field>
+    </record>
+    <record id="contact_type_adjointe_direction" model="contact.type">
+        <field name="name">adjointe direction</field>
+    </record>
+    <record id="contact_type_administration" model="contact.type">
+        <field name="name">administration</field>
+    </record>
+    <record id="contact_type_approvisionneur" model="contact.type">
+        <field name="name">approvisionneur</field>
+    </record>
+    <record id="contact_type_assicier" model="contact.type">
+        <field name="name">assicier</field>
+    </record>
+    <record id="contact_type_associé" model="contact.type">
+        <field name="name">Associé</field>
+    </record>
+    <record id="contact_type_associé_comptoir_pro_et_livraison" model="contact.type">
+        <field name="name">Associé comptoir pro et livraison</field>
+    </record>
+    <record id="contact_type_associé_fondateur" model="contact.type">
+        <field name="name">associé fondateur</field>
+    </record>
+    <record id="contact_type_associé_propriétaire" model="contact.type">
+        <field name="name">associé propriétaire</field>
+    </record>
+    <record id="contact_type_associé_chargé_projet" model="contact.type">
+        <field name="name">Associé/Chargé projet</field>
+    </record>
+    <record id="contact_type_associé_chargé_projet_contact_livraison" model="contact.type">
+        <field name="name">Associé/Chargé projet/Contact livraison</field>
+    </record>
+    <record id="contact_type_associée" model="contact.type">
+        <field name="name">associée</field>
+    </record>
+            <record id="contact_type_associée_propriétaire" model="contact.type">
+        <field name="name">associée propriétaire</field>
+    </record>
+    <record id="contact_type_associer" model="contact.type">
+        <field name="name">associer</field>
+    </record>
+    <record id="contact_type_bureau" model="contact.type">
+        <field name="name">bureau</field>
+    </record>
+    <record id="contact_type_cédule_de_livraison" model="contact.type">
+        <field name="name">Cédule de livraison</field>
+    </record>
+    <record id="contact_type_changé_de_projet_livraison" model="contact.type">
+        <field name="name">changé de projet / livraison</field>
+    </record>
+    <record id="contact_type_chantier" model="contact.type">
+        <field name="name">Chantier</field>
+    </record>
+    <record id="contact_type_chantier_plus_livraison" model="contact.type">
+        <field name="name">Chantier + Livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_spaces" model="contact.type">
+        <field name="name">chargé  de  projet</field>
+    </record>
+    <record id="contact_type_chargé_de_pro_contact_de_livraison" model="contact.type">
+        <field name="name">Chargé de pro + Contact de Livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_progets" model="contact.type">
+        <field name="name">Chargé de progets</field>
+    </record>
+    <record id="contact_type_charge_de_projet" model="contact.type">
+        <field name="name">charge de projet</field>
+    </record>
+    <record id="contact_type_chargé_de_projet" model="contact.type">
+        <field name="name">Chargé de projet</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_contact_livraison_dash" model="contact.type">
+        <field name="name">Chargé de projet - Contact livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_project_manager" model="contact.type">
+        <field name="name">Chargé de projet - Project Manager</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_et_contact_livraison" model="contact.type">
+        <field name="name">Chargé de projet &amp; Contact livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_livraison" model="contact.type">
+        <field name="name">Chargé de projet / Livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_livraison2" model="contact.type">
+        <field name="name">Chargé de projet / Livraison2</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_plus_contact_livraison" model="contact.type">
+        <field name="name">Chargé de Projet + Conatct Livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_plus_contact_de_livraison" model="contact.type">
+        <field name="name">Chargé de Projet + Contact de Livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_plus_contact_livraison_2" model="contact.type">
+        <field name="name">Chargé de Projet + Contact Livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_plus_estimatrice" model="contact.type">
+        <field name="name">Chargé de Projet + Estimatrice</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_plus_menuisier" model="contact.type">
+        <field name="name">Chargé de Projet + Menuisier</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_et_estimatrice" model="contact.type">
+        <field name="name">Chargé de projet et estimatrice</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_livraison_dash" model="contact.type">
+        <field name="name">Chargé De Projet- Livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_résidentiel" model="contact.type">
+        <field name="name">chargé de projet résidentiel</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_estimateur" model="contact.type">
+        <field name="name">chargé de projet,Estimateur</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_contact_livraison_slash" model="contact.type">
+        <field name="name">Chargé de projet/contact livraison</field>
+    </record>
+    <record id="contact_type_chargé_de_projet_contact_livraison_2" model="contact.type">
+        <field name="name">Chargé de projet/contact livraison 2</field>
+    </record>
+    <record id="contact_type_chargé_de_projets" model="contact.type">
+        <field name="name">Chargé de projets</field>
+    </record>
+    <record id="contact_type_chargé_e_projets" model="contact.type">
+        <field name="name">chargé e projets</field>
+    </record>
+    <record id="contact_type_chargé_proget" model="contact.type">
+        <field name="name">chargé proget</field>
+    </record>
+    <record id="contact_type_chargé_projet" model="contact.type">
+        <field name="name">chargé projet</field>
+    </record>
+    <record id="contact_type_chargé_projet_envergure_contact_livraison" model="contact.type">
+        <field name="name">Chargé projet envergure/contact livraison</field>
+    </record>
+    <record id="contact_type_charge_projet_rive_sud" model="contact.type">
+        <field name="name">charge projet rive sud</field>
+    </record>
+    <record id="contact_type_chargé_projet_contact_livraison" model="contact.type">
+        <field name="name">Chargé projet/ contact livraison</field>
+    </record>
+    <record id="contact_type_chargée_de_projet" model="contact.type">
+        <field name="name">Chargée de Projet</field>
+    </record>
+    <record id="contact_type_chargée_de_projet_et_livraison" model="contact.type">
+        <field name="name">Chargée de Projet &amp; Livraison</field>
+    </record>
+    <record id="contact_type_chargée_de_projet_plus_ingénieur_junior" model="contact.type">
+        <field name="name">Chargée de Projet + Ingénieur Junior</field>
+    </record>
+    <record id="contact_type_chargée_de_projets" model="contact.type">
+        <field name="name">chargée de projets</field>
+    </record>
+    <record id="contact_type_chargée_de_projets_cité_nature" model="contact.type">
+        <field name="name">Chargée de projets - Cité Nature</field>
+    </record>
+    <record id="contact_type_chargée_de_projets_residentiel" model="contact.type">
+        <field name="name">Chargée de projets – Residentiel</field>
+    </record>
+    <record id="contact_type_chargée_de_projets_résidentiel" model="contact.type">
+        <field name="name">Chargée de projets – Résidentiel</field>
+    </record>
+    <record id="contact_type_chargée_de_projets_tech_architecture" model="contact.type">
+        <field name="name">Chargée de projets / Tech. en architecture</field>
+    </record>
+    <record id="contact_type_charger_de_projet" model="contact.type">
+        <field name="name">Charger de projet</field>
+    </record>
+    <record id="contact_type_charger_de_projet_plus_estimateur" model="contact.type">
+        <field name="name">charger de projet+ estimateur</field>
+    </record>
+    <record id="contact_type_charpentier_menuisier" model="contact.type">
+        <field name="name">Charpentier &amp; Menuisier</field>
+    </record>
+    <record id="contact_type_charpentier_menuisier_contact_livraison" model="contact.type">
+        <field name="name">Charpentier &amp; Menuisier/Contact livraison</field>
+    </record>
+    <record id="contact_type_chef_département_estimation" model="contact.type">
+        <field name="name">Chef département estimation</field>
+    </record>
+    <record id="contact_type_chef_estimateur" model="contact.type">
+        <field name="name">Chef Estimateur</field>
+    </record>
+    <record id="contact_type_chef_estimateur_chargé_de_projets" model="contact.type">
+        <field name="name">Chef Estimateur/Chargé de projets</field>
+    </record>
+            <record id="contact_type_chef_estimatrice" model="contact.type">
+        <field name="name">Chef estimatrice</field>
+    </record>
+    <record id="contact_type_client" model="contact.type">
+        <field name="name">Client</field>
+    </record>
+    <record id="contact_type_client_contact_livraison_space" model="contact.type">
+        <field name="name">Client  contact livraison</field>
+    </record>
+    <record id="contact_type_client_contact_livraison_slash" model="contact.type">
+        <field name="name">Client / Contact livraison</field>
+    </record>
+    <record id="contact_type_client_plus_contact_livraison" model="contact.type">
+        <field name="name">Client + Contact Livraison</field>
+    </record>
+    <record id="contact_type_client_conact_livraison" model="contact.type">
+        <field name="name">Client conact livraison</field>
+    </record>
+    <record id="contact_type_client_contact" model="contact.type">
+        <field name="name">Client contact</field>
+    </record>
+    <record id="contact_type_client_contact_de_livraison" model="contact.type">
+        <field name="name">client contact de livraison</field>
+    </record>
+    <record id="contact_type_client_contact_livraison" model="contact.type">
+        <field name="name">Client contact livraison</field>
+    </record>
+    <record id="contact_type_client_et_contracteur" model="contact.type">
+        <field name="name">client et contracteur</field>
+    </record>
+    <record id="contact_type_client_facturation" model="contact.type">
+        <field name="name">client/Facturation</field>
+    </record>
+    <record id="contact_type_collaboratrice" model="contact.type">
+        <field name="name">collaboratrice</field>
+    </record>
+    <record id="contact_type_comis" model="contact.type">
+        <field name="name">comis</field>
+    </record>
+    <record id="contact_type_commercial" model="contact.type">
+        <field name="name">commercial</field>
+    </record>
+    <record id="contact_type_commis" model="contact.type">
+        <field name="name">commis</field>
+    </record>
+    <record id="contact_type_commis_comptoir" model="contact.type">
+        <field name="name">commis comptoir</field>
+    </record>
+    <record id="contact_type_commis_entrepreneur" model="contact.type">
+        <field name="name">commis entrepreneur</field>
+    </record>
+    <record id="contact_type_commis_matériaux" model="contact.type">
+        <field name="name">Commis Matériaux</field>
+    </record>
+    <record id="contact_type_comptabilité" model="contact.type">
+        <field name="name">Comptabilité</field>
+    </record>
+    <record id="contact_type_comptabilité_facturation_contact_livraison" model="contact.type">
+        <field name="name">comptabilité (facturation)/Contact livraison</field>
+    </record>
+    <record id="contact_type_comptable" model="contact.type">
+        <field name="name">comptable</field>
+    </record>
+    <record id="contact_type_comptable_facturation" model="contact.type">
+        <field name="name">comptable (facturation)</field>
+    </record>
+    <record id="contact_type_comptoir" model="contact.type">
+        <field name="name">comptoir</field>
+    </record>
+    <record id="contact_type_comptoir_entrepreneurs" model="contact.type">
+        <field name="name">Comptoir entrepreneurs</field>
+    </record>
+    <record id="contact_type_conrtracteur" model="contact.type">
+        <field name="name">Conrtracteur</field>
+    </record>
+    <record id="contact_type_conrtracteur_et_contact_livraison" model="contact.type">
+        <field name="name">Conrtracteur et contact livraison</field>
+    </record>
+    <record id="contact_type_conseiller_aux_entrepreneurs" model="contact.type">
+        <field name="name">Conseiller aux Entrepreneurs</field>
+    </record>
+    <record id="contact_type_conseiller_aux_ventes" model="contact.type">
+        <field name="name">Conseiller aux ventes</field>
+    </record>
+    <record id="contact_type_conseiller_senoir" model="contact.type">
+        <field name="name">Conseiller Senoir</field>
+    </record>
+    <record id="contact_type_contac_livraison" model="contact.type">
+        <field name="name">Contac livraison</field>
+    </record>
+    <record id="contact_type_contact" model="contact.type">
+        <field name="name">contact</field>
+    </record>
+    <record id="contact_type_contact_livraison_space" model="contact.type">
+        <field name="name">Contact  livraison</field>
+    </record>
+    <record id="contact_type_contact_et_livraisons_en_tout_temps" model="contact.type">
+        <field name="name">contact $$$ et Livraisons en tout temps</field>
+    </record>
+    <record id="contact_type_contact_bureau" model="contact.type">
+        <field name="name">Contact Bureau</field>
+    </record>
+    <record id="contact_type_contact_chantier_livraison" model="contact.type">
+        <field name="name">Contact chantier livraison</field>
+    </record>
+    <record id="contact_type_contact_de_livraison" model="contact.type">
+        <field name="name">contact de livraison</field>
+    </record>
+    <record id="contact_type_contact_livraisom" model="contact.type">
+        <field name="name">contact livraisom</field>
+    </record>
+    <record id="contact_type_contact_livraison_standard" model="contact.type">
+        <field name="name">contact livraison</field>
+    </record>
+    <record id="contact_type_contact_livraison_logistique" model="contact.type">
+        <field name="name">Contact Livraison (Logistique)</field>
+    </record>
+    <record id="contact_type_contact_livraison_propriétaire_slash" model="contact.type">
+        <field name="name">contact livraison / Propriétaire</field>
+    </record>
+    <record id="contact_type_contact_livraison_1" model="contact.type">
+        <field name="name">contact livraison 1</field>
+    </record>
+    <record id="contact_type_contact_livraison_monteur" model="contact.type">
+        <field name="name">contact livraison/monteur</field>
+    </record>
+    <record id="contact_type_contact_livraison_proprietaire" model="contact.type">
+        <field name="name">contact livraison/proprietaire</field>
+    </record>
+    <record id="contact_type_contact_livrasion_logistique" model="contact.type">
+        <field name="name">Contact Livrasion (Logistique)</field>
+    </record>
+    <record id="contact_type_contact_materiaux" model="contact.type">
+        <field name="name">contact materiaux</field>
+    </record>
+    <record id="contact_type_contarcteur_et_contact_livraison" model="contact.type">
+        <field name="name">Contarcteur et contact livraison</field>
+    </record>
+    <record id="contact_type_contracteur" model="contact.type">
+        <field name="name">contracteur</field>
+    </record>
+    <record id="contact_type_contracteur_contact_livraison" model="contact.type">
+        <field name="name">Contracteur &amp; Contact livraison</field>
+    </record>
+    <record id="contact_type_contracteur_et_contact_livraison" model="contact.type">
+        <field name="name">Contracteur et contact livraison</field>
+    </record>
+    <record id="contact_type_contremaître" model="contact.type">
+        <field name="name">contremaître</field>
+    </record>
+            <record id="contact_type_contremaître_chantier" model="contact.type">
+        <field name="name">contremaître chantier</field>
+    </record>
+    <record id="contact_type_contremaitre_de_chantier" model="contact.type">
+        <field name="name">Contremaitre de chantier</field>
+    </record>
+    <record id="contact_type_contremaitre_chantier_slash" model="contact.type">
+        <field name="name">contremaitre/chantier</field>
+    </record>
+    <record id="contact_type_coordonateur_projet" model="contact.type">
+        <field name="name">Coordonateur projet</field>
+    </record>
+    <record id="contact_type_coordonatrice" model="contact.type">
+        <field name="name">coordonatrice</field>
+    </record>
+    <record id="contact_type_coordonatrice_de_projet" model="contact.type">
+        <field name="name">coordonatrice de projet</field>
+    </record>
+    <record id="contact_type_coordonatrice_de_projets" model="contact.type">
+        <field name="name">Coordonatrice de projets</field>
+    </record>
+    <record id="contact_type_coordonnateur_chargé_de_projet" model="contact.type">
+        <field name="name">Coordonnateur - Chargé de projet</field>
+    </record>
+    <record id="contact_type_coordonnateur_de_projet" model="contact.type">
+        <field name="name">coordonnateur de projet</field>
+    </record>
+    <record id="contact_type_coordonnateur_technique" model="contact.type">
+        <field name="name">Coordonnateur Technique</field>
+    </record>
+    <record id="contact_type_coordonnatrice_administrative" model="contact.type">
+        <field name="name">Coordonnatrice administrative</field>
+    </record>
+    <record id="contact_type_coordonnatrice_de_projet" model="contact.type">
+        <field name="name">Coordonnatrice de projet</field>
+    </record>
+    <record id="contact_type_coordonnatrice_de_projets" model="contact.type">
+        <field name="name">Coordonnatrice de projets</field>
+    </record>
+    <record id="contact_type_courtier" model="contact.type">
+        <field name="name">courtier</field>
+    </record>
+    <record id="contact_type_d_dube_ccbinc_ca" model="contact.type">
+        <field name="name">d.dube@ccbinc.ca</field>
+    </record>
+    <record id="contact_type_designer" model="contact.type">
+        <field name="name">Designer</field>
+    </record>
+    <record id="contact_type_designer_et_co_propriétaire" model="contact.type">
+        <field name="name">designer et co propriétaire</field>
+    </record>
+    <record id="contact_type_dessinateur_plan_et_suivi_tech" model="contact.type">
+        <field name="name">Dessinateur plan et Suivi tech</field>
+    </record>
+    <record id="contact_type_dessinatrice" model="contact.type">
+        <field name="name">dessinatrice</field>
+    </record>
+    <record id="contact_type_dir_adjoint_services_aux_entrepreneurs" model="contact.type">
+        <field name="name">Dir. Adjoint services aux entrepreneurs</field>
+    </record>
+    <record id="contact_type_directeur" model="contact.type">
+        <field name="name">Directeur</field>
+    </record>
+    <record id="contact_type_directeur_à_l_estimation" model="contact.type">
+        <field name="name">Directeur à l'estimation</field>
+    </record>
+    <record id="contact_type_directeur_adjoint" model="contact.type">
+        <field name="name">Directeur Adjoint</field>
+    </record>
+    <record id="contact_type_directeur_construction" model="contact.type">
+        <field name="name">Directeur construction</field>
+    </record>
+    <record id="contact_type_directeur_de_la_construction" model="contact.type">
+        <field name="name">directeur de la construction</field>
+    </record>
+    <record id="contact_type_directeur_de_opération_commande" model="contact.type">
+        <field name="name">Directeur de Opération (commande)</field>
+    </record>
+    <record id="contact_type_directeur_de_projet" model="contact.type">
+        <field name="name">Directeur de Projet</field>
+    </record>
+    <record id="contact_type_directeur_de_projets" model="contact.type">
+        <field name="name">Directeur de projets</field>
+    </record>
+    <record id="contact_type_directeur_de_succursale" model="contact.type">
+        <field name="name">Directeur de Succursale</field>
+    </record>
+    <record id="contact_type_directeur_dept_construction" model="contact.type">
+        <field name="name">Directeur dept. construction</field>
+    </record>
+    <record id="contact_type_directeur_des_opérations" model="contact.type">
+        <field name="name">Directeur des opérations</field>
+    </record>
+    <record id="contact_type_directeur_des_opérations_contact_livraison" model="contact.type">
+        <field name="name">Directeur des opérations Contact Livraison</field>
+    </record>
+    <record id="contact_type_directeur_des_projets_industriel" model="contact.type">
+        <field name="name">Directeur des projets Industriel</field>
+    </record>
+    <record id="contact_type_directeur_des_ventes" model="contact.type">
+        <field name="name">Directeur des Ventes</field>
+    </record>
+    <record id="contact_type_directeur_général" model="contact.type">
+        <field name="name">Directeur Général</field>
+    </record>
+    <record id="contact_type_directeur_général_adjoint" model="contact.type">
+        <field name="name">Directeur général adjoint</field>
+    </record>
+    <record id="contact_type_directeur_technique" model="contact.type">
+        <field name="name">Directeur Technique</field>
+    </record>
+    <record id="contact_type_directrice_comptoir_matériaux" model="contact.type">
+        <field name="name">directrice comptoir matériaux</field>
+    </record>
+    <record id="contact_type_directrice_des_opérations" model="contact.type">
+        <field name="name">Directrice Des Opérations</field>
+    </record>
+    <record id="contact_type_directrice_vente" model="contact.type">
+        <field name="name">Directrice vente</field>
+    </record>
+    <record id="contact_type_entrepreneueur" model="contact.type">
+        <field name="name">Entrepreneueur</field>
+    </record>
+    <record id="contact_type_entrepreneur" model="contact.type">
+        <field name="name">Entrepreneur</field>
+    </record>
+    <record id="contact_type_entrepreneur_général_plus_contact_livraison" model="contact.type">
+        <field name="name">Entrepreneur  Général + Contact Livraison</field>
+    </record>
+    <record id="contact_type_entrepreneur_livraison" model="contact.type">
+        <field name="name">Entrepreneur - livraison</field>
+    </record>
+    <record id="contact_type_entrepreneur_contact_livraison_slash" model="contact.type">
+        <field name="name">Entrepreneur / Contact livraison</field>
+    </record>
+    <record id="contact_type_entrepreneur_plus_contact_livraison" model="contact.type">
+        <field name="name">Entrepreneur + Contact Livraison</field>
+    </record>
+    <record id="contact_type_entrepreneur_general" model="contact.type">
+        <field name="name">Entrepreneur General</field>
+    </record>
+    <record id="contact_type_entrepreneur_général" model="contact.type">
+        <field name="name">Entrepreneur Général</field>
+    </record>
+    <record id="contact_type_entrepreneur_général_propriétaire" model="contact.type">
+        <field name="name">Entrepreneur Général - Propriétaire</field>
+    </record>
+    <record id="contact_type_entrepreneur_général_plus_chargé_de_projet" model="contact.type">
+        <field name="name">Entrepreneur Général + Chargé de Projet</field>
+    </record>
+            <record id="contact_type_entrepreneur_général_plus_contact_livraison_2" model="contact.type">
+        <field name="name">Entrepreneur Général + Contact Livraison</field>
+    </record>
+    <record id="contact_type_entrepreneur_général_plus_directeur_construction" model="contact.type">
+        <field name="name">Entrepreneur Général + Directeur Construction</field>
+    </record>
+    <record id="contact_type_entrepreneur_général_plus_menuisier" model="contact.type">
+        <field name="name">Entrepreneur Général + Menuisier</field>
+    </record>
+    <record id="contact_type_entrepreneur_general_et_contact_livraison" model="contact.type">
+        <field name="name">Entrepreneur General et Contact Livraison</field>
+    </record>
+    <record id="contact_type_entrepreneur_menuisier_charpentier" model="contact.type">
+        <field name="name">entrepreneur menuisier charpentier</field>
+    </record>
+    <record id="contact_type_entrepreneur_rénovation" model="contact.type">
+        <field name="name">entrepreneur rénovation</field>
+    </record>
+    <record id="contact_type_entrpreneur" model="contact.type">
+        <field name="name">entrpreneur</field>
+    </record>
+    <record id="contact_type_épousse" model="contact.type">
+        <field name="name">épousse</field>
+    </record>
+    <record id="contact_type_estiamteur" model="contact.type">
+        <field name="name">estiamteur</field>
+    </record>
+    <record id="contact_type_estimateur_standard" model="contact.type">
+        <field name="name">Estimateur</field>
+    </record>
+    <record id="contact_type_estimateur_chargé_de_projets" model="contact.type">
+        <field name="name">Estimateur &amp; Chargé de projets</field>
+    </record>
+    <record id="contact_type_estimateur_acheteur_slash" model="contact.type">
+        <field name="name">Estimateur / Acheteur</field>
+    </record>
+    <record id="contact_type_estimateur_plus_chargé_projet" model="contact.type">
+        <field name="name">Estimateur + Chargé projet</field>
+    </record>
+    <record id="contact_type_estimateur_plus_gérant_de_projet" model="contact.type">
+        <field name="name">Estimateur + gérant de projet</field>
+    </record>
+    <record id="contact_type_estimateur_et_cofondateur" model="contact.type">
+        <field name="name">Estimateur et Cofondateur</field>
+    </record>
+    <record id="contact_type_estimateur_et_livraison" model="contact.type">
+        <field name="name">estimateur et livraison</field>
+    </record>
+    <record id="contact_type_estimateur_principal" model="contact.type">
+        <field name="name">Estimateur Principal</field>
+    </record>
+    <record id="contact_type_estimateur_projets" model="contact.type">
+        <field name="name">Estimateur Projets</field>
+    </record>
+    <record id="contact_type_estimateur_directeur_de_projets" model="contact.type">
+        <field name="name">Estimateur, directeur de projets</field>
+    </record>
+    <record id="contact_type_estimateur_charger_projet" model="contact.type">
+        <field name="name">estimateur-charger projet</field>
+    </record>
+    <record id="contact_type_estimation" model="contact.type">
+        <field name="name">Estimation</field>
+    </record>
+    <record id="contact_type_estimatrice" model="contact.type">
+        <field name="name">estimatrice</field>
+    </record>
+    <record id="contact_type_estimatrice_chargée_de_projet" model="contact.type">
+        <field name="name">Estimatrice - Chargée de projet</field>
+    </record>
+    <record id="contact_type_estrimatrice" model="contact.type">
+        <field name="name">Estrimatrice</field>
+    </record>
+    <record id="contact_type_facturation" model="contact.type">
+        <field name="name">facturation</field>
+    </record>
+    <record id="contact_type_facturation_commis_comptable" model="contact.type">
+        <field name="name">Facturation commis comptable</field>
+    </record>
+    <record id="contact_type_fondateur" model="contact.type">
+        <field name="name">Fondateur</field>
+    </record>
+    <record id="contact_type_frere" model="contact.type">
+        <field name="name">frere</field>
+    </record>
+    <record id="contact_type_gars_au_chantier" model="contact.type">
+        <field name="name">gars au chantier</field>
+    </record>
+    <record id="contact_type_general" model="contact.type">
+        <field name="name">General</field>
+    </record>
+    <record id="contact_type_général" model="contact.type">
+        <field name="name">Général</field>
+    </record>
+    <record id="contact_type_général_livraison_slash" model="contact.type">
+        <field name="name">Général / Livraison</field>
+    </record>
+    <record id="contact_type_general_contractor" model="contact.type">
+        <field name="name">General Contractor</field>
+    </record>
+    <record id="contact_type_général_et_contact_livraison" model="contact.type">
+        <field name="name">Général et contact livraison</field>
+    </record>
+    <record id="contact_type_gerant_acheteur_slash" model="contact.type">
+        <field name="name">Gerant / acheteur</field>
+    </record>
+    <record id="contact_type_gérant_chantier" model="contact.type">
+        <field name="name">Gérant Chantier</field>
+    </record>
+    <record id="contact_type_gérant_chantier_plus_contact_livraison" model="contact.type">
+        <field name="name">Gérant Chantier + Contact Livraison</field>
+    </record>
+    <record id="contact_type_gerant_chantier_3_riv" model="contact.type">
+        <field name="name">Gérant chantier 3-Riv.</field>
+    </record>
+    <record id="contact_type_gerant_de_chantier" model="contact.type">
+        <field name="name">gerant de chantier</field>
+    </record>
+    <record id="contact_type_gérant_de_chantier" model="contact.type">
+        <field name="name">Gérant de Chantier</field>
+    </record>
+    <record id="contact_type_gérant_de_chantier_plus_contact_livraison" model="contact.type">
+        <field name="name">Gérant de Chantier + Contact Livraison</field>
+    </record>
+    <record id="contact_type_gérant_de_chantier_et_contact_livraison" model="contact.type">
+        <field name="name">Gérant de chantier et contact livraison</field>
+    </record>
+    <record id="contact_type_gerant_de_chantier_et_livraison" model="contact.type">
+        <field name="name">Gerant de Chantier et livraison</field>
+    </record>
+    <record id="contact_type_gerant_de_matériaux_plus_acheteur" model="contact.type">
+        <field name="name">gerant de matériaux + acheteur</field>
+    </record>
+    <record id="contact_type_gérant_de_matériaux_et_acheteur" model="contact.type">
+        <field name="name">Gérant de Matériaux et Acheteur</field>
+    </record>
+    <record id="contact_type_gérant_de_projet_livraison_slash" model="contact.type">
+        <field name="name">Gérant de Projet / Livraison</field>
+    </record>
+    <record id="contact_type_gérant_de_projets" model="contact.type">
+        <field name="name">Gérant de projets</field>
+    </record>
+    <record id="contact_type_gerant_des_matériaux" model="contact.type">
+        <field name="name">Gerant des Matériaux</field>
+    </record>
+    <record id="contact_type_gerant_materiau" model="contact.type">
+        <field name="name">gerant materiau</field>
+    </record>
+    <record id="contact_type_gérant_pro_et_location" model="contact.type">
+        <field name="name">gérant pro et location</field>
+    </record>
+            <record id="contact_type_président_plus_gérant_de_projet_plus_contact_livraison" model="contact.type">
+        <field name="name">Président + Gérant de projet + Contact Livraison</field>
+    </record>
+    <record id="contact_type_président_et_entrepreneur_général" model="contact.type">
+        <field name="name">Président et Entrepreneur Général</field>
+    </record>
+    <record id="contact_type_président_et_livraison" model="contact.type">
+        <field name="name">Président et Livraison</field>
+    </record>
+    <record id="contact_type_président_développement" model="contact.type">
+        <field name="name">Président, développement</field>
+    </record>
+    <record id="contact_type_président_directeur_général" model="contact.type">
+        <field name="name">Président-Directeur-Général</field>
+    </record>
+    <record id="contact_type_présidente" model="contact.type">
+        <field name="name">Présidente</field>
+    </record>
+    <record id="contact_type_présidente_contact_livraison_slash" model="contact.type">
+        <field name="name">Présidente / Contact livraison</field>
+    </record>
+    <record id="contact_type_présidente_entrepreneure_général" model="contact.type">
+        <field name="name">Présidente, Entrepreneure général</field>
+    </record>
+    <record id="contact_type_principale" model="contact.type">
+        <field name="name">Principale</field>
+    </record>
+    <record id="contact_type_propiétaire" model="contact.type">
+        <field name="name">Propiétaire</field>
+    </record>
+    <record id="contact_type_propiétaire_contact_livraison_slash" model="contact.type">
+        <field name="name">Propiétaire / contact Livraison</field>
+    </record>
+    <record id="contact_type_proprétaire_plus_contact_livraison" model="contact.type">
+        <field name="name">Proprétaire + Contact Livraison</field>
+    </record>
+    <record id="contact_type_proprietaire" model="contact.type">
+        <field name="name">Proprietaire</field>
+    </record>
+    <record id="contact_type_propriétaire" model="contact.type">
+        <field name="name">Propriétaire</field>
+    </record>
+    <record id="contact_type_propriétaire_plus_chargé_de_projet_résidentiel" model="contact.type">
+        <field name="name">Propriétaire  + Chargé de Projet Résidentiel</field>
+    </record>
+    <record id="contact_type_propriétaire_plus_contact_livraison_space" model="contact.type">
+        <field name="name">Propriétaire  + contact livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_plus_gérant_chantier" model="contact.type">
+        <field name="name">Propriétaire  + Gérant chantier</field>
+    </record>
+    <record id="contact_type_proprietaire_acheteur_space" model="contact.type">
+        <field name="name">Proprietaire  acheteur</field>
+    </record>
+    <record id="contact_type_propriétaire_contact_livraison_amp" model="contact.type">
+        <field name="name">Propriétaire &amp; Contact livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_plus_chargé_de_projet" model="contact.type">
+        <field name="name">Propriétaire + Chargé de Projet</field>
+    </record>
+    <record id="contact_type_propriétaire_plus_chargé_de_projet_charpente" model="contact.type">
+        <field name="name">Propriétaire + Chargé de Projet (charpente)</field>
+    </record>
+    <record id="contact_type_propriétaire_plus_contact_livraison" model="contact.type">
+        <field name="name">Propriétaire + Contact Livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_plus_électricien" model="contact.type">
+        <field name="name">Propriétaire + Électricien</field>
+    </record>
+    <record id="contact_type_propriétaire_plus_menuisier_plus_contact_livraison" model="contact.type">
+        <field name="name">Propriétaire + Menuisier + Contact Livraison</field>
+    </record>
+    <record id="contact_type_proprietaire_3" model="contact.type">
+        <field name="name">proprietaire 3</field>
+    </record>
+    <record id="contact_type_propriétaire_associé" model="contact.type">
+        <field name="name">propriétaire associé</field>
+    </record>
+    <record id="contact_type_propriétaire_associer" model="contact.type">
+        <field name="name">Propriétaire associer</field>
+    </record>
+    <record id="contact_type_propriétaire_contact_livraison" model="contact.type">
+        <field name="name">Propriétaire contact livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_et_chargé_de_projet" model="contact.type">
+        <field name="name">Propriétaire et chargé de projet</field>
+    </record>
+    <record id="contact_type_propriétaire_et_contact_livraison" model="contact.type">
+        <field name="name">Propriétaire et contact livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_et_gérant_chantier" model="contact.type">
+        <field name="name">Propriétaire et gérant chantier</field>
+    </record>
+    <record id="contact_type_propriétaire_et_gérant_chantier_et_livraison" model="contact.type">
+        <field name="name">Propriétaire et gérant chantier et livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_et_gerant_de_chantier" model="contact.type">
+        <field name="name">Propriétaire et Gerant de Chantier</field>
+    </record>
+    <record id="contact_type_proprietaire_et_gérant_de_chantier" model="contact.type">
+        <field name="name">Proprietaire et Gérant de Chantier</field>
+    </record>
+    <record id="contact_type_propriétaire_et_gérant_de_chantier" model="contact.type">
+        <field name="name">Propriétaire et Gérant de Chantier</field>
+    </record>
+    <record id="contact_type_propriétaire_et_gérante_de_projet" model="contact.type">
+        <field name="name">Propriétaire et gérante de projet</field>
+    </record>
+    <record id="contact_type_propriétaire_chantier_facturation_slash" model="contact.type">
+        <field name="name">Propriétaire/ chantier/ facturation</field>
+    </record>
+    <record id="contact_type_propriétaire_associé_slash" model="contact.type">
+        <field name="name">Propriétaire/associé</field>
+    </record>
+    <record id="contact_type_proprietaire_contact_livraison_slash" model="contact.type">
+        <field name="name">proprietaire/contact livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_contact_livraison_slash" model="contact.type">
+        <field name="name">Propriétaire/contact livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_entrepreneur_contact_livraison_slash" model="contact.type">
+        <field name="name">Propriétaire/entrepreneur/contact livraison</field>
+    </record>
+    <record id="contact_type_proprietaire_livraison_slash" model="contact.type">
+        <field name="name">proprietaire/livraison</field>
+    </record>
+    <record id="contact_type_propriétaire_contact_livraison_dash" model="contact.type">
+        <field name="name">Propriétaire-Contact livraison</field>
+    </record>
+    <record id="contact_type_rep" model="contact.type">
+        <field name="name">rep</field>
+    </record>
+    <record id="contact_type_reperesentant_coupal" model="contact.type">
+        <field name="name">reperesentant coupal</field>
+    </record>
+    <record id="contact_type_represantant" model="contact.type">
+        <field name="name">represantant</field>
+    </record>
+    <record id="contact_type_representant" model="contact.type">
+        <field name="name">representant</field>
+    </record>
+    <record id="contact_type_représentant" model="contact.type">
+        <field name="name">Représentant</field>
+    </record>
+    <record id="contact_type_représentant_aux_ventes" model="contact.type">
+        <field name="name">Représentant aux Ventes</field>
+    </record>
+    <record id="contact_type_représentant_des_comptes_commerciaux" model="contact.type">
+        <field name="name">Représentant des comptes commerciaux</field>
+    </record>
+            <record id="contact_type_representant_des_ventes" model="contact.type">
+        <field name="name">representant des ventes</field>
+    </record>
+    <record id="contact_type_représentant_des_ventes" model="contact.type">
+        <field name="name">Représentant Des Ventes</field>
+    </record>
+    <record id="contact_type_représentant_des_ventes_marcil" model="contact.type">
+        <field name="name">Représentant Des Ventes - Marcil</field>
+    </record>
+    <record id="contact_type_representant_des_ventes_commerciales" model="contact.type">
+        <field name="name">Representant des ventes commerciales</field>
+    </record>
+    <record id="contact_type_représentant_des_ventes_internes" model="contact.type">
+        <field name="name">Représentant des ventes internes</field>
+    </record>
+    <record id="contact_type_représentant_des_ventes_pro" model="contact.type">
+        <field name="name">Représentant des ventes pro</field>
+    </record>
+    <record id="contact_type_représentant_marchand" model="contact.type">
+        <field name="name">représentant Marchand</field>
+    </record>
+    <record id="contact_type_représentant_pour_gab_charplexe" model="contact.type">
+        <field name="name">Représentant pour Gab &amp; Charplexe</field>
+    </record>
+    <record id="contact_type_représentant_projets_spéciaux" model="contact.type">
+        <field name="name">Représentant Projets Spéciaux</field>
+    </record>
+    <record id="contact_type_représentant_rive_sud" model="contact.type">
+        <field name="name">Représentant Rive Sud</field>
+    </record>
+    <record id="contact_type_representant_rive_sud_dash" model="contact.type">
+        <field name="name">representant rive-sud</field>
+    </record>
+    <record id="contact_type_représentant_rive_sud_dash" model="contact.type">
+        <field name="name">Représentant rive-Sud</field>
+    </record>
+    <record id="contact_type_representant_rona" model="contact.type">
+        <field name="name">Representant Rona</field>
+    </record>
+    <record id="contact_type_représentant_rona" model="contact.type">
+        <field name="name">représentant Rona</field>
+    </record>
+    <record id="contact_type_representant_rona_interne" model="contact.type">
+        <field name="name">representant Rona interne</field>
+    </record>
+    <record id="contact_type_représentant_rona_rive_sud" model="contact.type">
+        <field name="name">Représentant Rona rive-sud</field>
+    </record>
+    <record id="contact_type_representante_interne" model="contact.type">
+        <field name="name">representante interne</field>
+    </record>
+    <record id="contact_type_responsable" model="contact.type">
+        <field name="name">responsable</field>
+    </record>
+    <record id="contact_type_responsable_administrative" model="contact.type">
+        <field name="name">Responsable administrative</field>
+    </record>
+    <record id="contact_type_responsable_entrepot" model="contact.type">
+        <field name="name">Responsable Entrepot</field>
+    </record>
+    <record id="contact_type_secrétaire" model="contact.type">
+        <field name="name">Secrétaire</field>
+    </record>
+    <record id="contact_type_secrétaire_estimation" model="contact.type">
+        <field name="name">secrétaire estimation</field>
+    </record>
+    <record id="contact_type_service_aux_entrepreneurs" model="contact.type">
+        <field name="name">Service Aux Entrepreneurs</field>
+    </record>
+    <record id="contact_type_service_entrepreneur_et_commercial" model="contact.type">
+        <field name="name">Service Entrepreneur et Commercial</field>
+    </record>
+    <record id="contact_type_service_entrepreneurs" model="contact.type">
+        <field name="name">Service Entrepreneurs</field>
+    </record>
+    <record id="contact_type_surintendans_de_chantier" model="contact.type">
+        <field name="name">Surintendans de chantier</field>
+    </record>
+    <record id="contact_type_surintendant" model="contact.type">
+        <field name="name">surintendant</field>
+    </record>
+    <record id="contact_type_surintendant_plus_contact_livraison" model="contact.type">
+        <field name="name">Surintendant + Contact Livraison</field>
+    </record>
+    <record id="contact_type_surintendant_de_chantier" model="contact.type">
+        <field name="name">surintendant de chantier</field>
+    </record>
+    <record id="contact_type_surintendant_de_chantier_rive_nord" model="contact.type">
+        <field name="name">surintendant de chantier rive nord</field>
+    </record>
+    <record id="contact_type_surintendant_général" model="contact.type">
+        <field name="name">Surintendant Général</field>
+    </record>
+    <record id="contact_type_tech_génie_civil" model="contact.type">
+        <field name="name">tech. génie civil</field>
+    </record>
+    <record id="contact_type_technicien_en_architecture" model="contact.type">
+        <field name="name">Technicien en Architecture</field>
+    </record>
+    <record id="contact_type_technique" model="contact.type">
+        <field name="name">Technique</field>
+    </record>
+    <record id="contact_type_technologue" model="contact.type">
+        <field name="name">technologue</field>
+    </record>
+    <record id="contact_type_vendeur" model="contact.type">
+        <field name="name">Vendeur</field>
+    </record>
+    <record id="contact_type_vendeur_comptoir_matériaux" model="contact.type">
+        <field name="name">Vendeur comptoir matériaux</field>
+    </record>
+    <record id="contact_type_vendeur_matériaux" model="contact.type">
+        <field name="name">vendeur matériaux</field>
+    </record>
+    <record id="contact_type_ventes" model="contact.type">
+        <field name="name">Ventes</field>
+    </record>
+    <record id="contact_type_vice_président" model="contact.type">
+        <field name="name">Vice président</field>
+    </record>
+    <record id="contact_type_vice_président_secretaire" model="contact.type">
+        <field name="name">Vice président - Secretaire</field>
+    </record>
+    <record id="contact_type_vice_président_chargé_de_projet" model="contact.type">
+        <field name="name">Vice président / Chargé de projet</field>
+    </record>
+    <record id="contact_type_vice_président_dash" model="contact.type">
+        <field name="name">vice-président</field>
+    </record>
+    <record id="contact_type_vice_président_construction" model="contact.type">
+        <field name="name">Vice-Président Construction</field>
+    </record>
+    <record id="contact_type_vice_président_exécution" model="contact.type">
+        <field name="name">vice-président exécution</field>
+    </record>
+    <record id="contact_type_vice_présidente" model="contact.type">
+        <field name="name">Vice-Présidente</field>
+    </record>
+    <record id="contact_type_vise_présidente" model="contact.type">
+        <field name="name">Vise présidente</field>
+    </record>
+        </data>
+        </odoo>

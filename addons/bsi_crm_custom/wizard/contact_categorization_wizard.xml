@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_contact_categorization_wizard" model="ir.ui.view">
+        <field name="name">view.contact.categorization.wizard</field>
+        <field name="model">contact.categorization.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!-- ✅ Must include this for the condition to work -->
+                    <field name="show_recurrent_fields" invisible="1"/>
+
+                    <group>
+                        <group>
+                            <field name="potential_recurrence"/>
+
+                            <field name="openings_per_year"
+                                   invisible="not show_recurrent_fields"/>
+                            <field name="is_proportion_above_80"
+                                   invisible="not show_recurrent_fields"/>
+                            <field name="customer_id"
+                                   invisible="not show_recurrent_fields"/>
+
+                            <field name="user_id"
+                                   widget="many2one_avatar_user"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="last_update_year"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="partner_id" invisible="1"/>
+                            <field name="child_ids" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_apply" string="Confirmer" type="object" class="oe_highlight"/>
+                    <button special="cancel" string="Annuler" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

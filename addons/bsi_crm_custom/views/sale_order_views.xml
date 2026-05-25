@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_view_hierarchy" model="ir.ui.view">
+    <field name="name">sale.order.view.hierarchy</field>
+    <field name="model">sale.order</field>
+    <field name="arch" type="xml">
+        <hierarchy child_field="order_child_ids" draggable="1" icon="fa-users">
+            <field name="user_id"/>
+            <field name="name"/>
+            <field name="partner_id"/>
+            <field name="paying_customer_id"/>
+            <field name="user_image_128"/>
+            <field name="stag_id"/>
+
+            <templates>
+                <t t-name="hierarchy-box">
+                    <div class="o_hierarchy_node_header d-flex justify-content-center pb-4">
+                        <field name="user_image_128"
+                               widget="background_image"
+                               preview_image="user_image_128"
+                               options="{'zoom': true, 'zoom_delay': 1000}"/>
+                    </div>
+
+                    <div class="o_hierarchy_node_body d-flex flex-column text-center p-2">
+                        <div>
+                            <span t-att-class="{
+                                'text-warning fw-bold': record.stag_id.raw_value == 'soumission',
+                                'text-success fw-bold': record.stag_id.raw_value == 'contrat',
+                                'fw-bold': !['soumission','contrat'].includes(record.stag_id.raw_value)
+                            }">
+                                <field name="name"/>
+                            </span>
+                            <br/>
+                            <span class="fw-bold">Client : </span> <field name="partner_id"/><br/>
+                            <span class="fw-bold">Client P : </span> <field name="paying_customer_id"/><br/>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </hierarchy>
+    </field>
+</record>
+
+
+    
+    <record id="bsi_sale_view_inherit123" model="ir.ui.view">
+        <field name="name">bsi.sale.view.inherit123</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_crm.sale_view_inherit123"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//field[@name='tag_ids']" position="after">
+                <xpath expr="//field[@name='opportunity_id']" position="move"/>
+            </xpath> -->
+            <xpath expr="//field[@name='opportunity_id']" position="attributes">
+    <attribute name="string">Projet client</attribute>
+    <attribute name="readonly">0</attribute>
+    <attribute name="required">1</attribute>
+</xpath>
+
+            <xpath expr="//group[@name='sale_reporting']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>    
+    
+    <record id="bsi_sale_view_inherit126" model="ir.ui.view">
+        <field name="name">bsi.sale.view.inherit126</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sales_person']/field[@name='require_signature']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+
+        <xpath expr="//group[@name='sales_person']/field[@name='tag_ids']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+
+
+            
+
+<xpath expr="//div[@name='button_box']" position="after">
+
+    <field name="soumission_envoye" invisible="1"/>
+    <field name="contrat_envoye" invisible="1"/>
+    <field name="contrat_signe" invisible="1"/>
+
+ 
+    <div class="float-end mx-4">
+        <div class="fs-6 badge rounded-pill fw-bold text-bg-primary ms-2"
+             invisible="not soumission_envoye">
+            Soumission envoyé
+        </div>
+        <div class="fs-6 badge rounded-pill fw-bold text-bg-warning ms-2"
+             invisible="not contrat_envoye">
+            Contrat envoyé
+        </div>
+        <div class="fs-6 badge rounded-pill fw-bold text-bg-success ms-2"
+             invisible="not contrat_signe">
+            Contrat signé
+        </div>
+    </div>
+</xpath>
+        </field>
+    </record>
+
+        <record id="bsi_crm_case_form_view_quotation" model="ir.ui.view">
+        <field name="name">bsi.crm.case.form.view.quota</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_quotation_send']" position="attributes">
+                <attribute name="string">Nouvelle demande</attribute>
+                <attribute name="class" add="disabled" separator=" "/>
+            </xpath>
+            <xpath expr="//button[@id='send_by_email']" position="attributes">
+                <attribute name="context">{'validate_analytic': True, 'send_order_report': True}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="string">Abandonné</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hide_fields_view_quotation" model="ir.ui.view">
+    <field name="name">sale.order.form.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='date_order']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+
+        <xpath expr="//label[@for='date_order']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='validity_date']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='payment_term_id']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//button[@id='create_invoice']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//button[@id='create_invoice_percentage']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+    </field>
+</record>
+
+<record id="hide_fields_view_quotation12" model="ir.ui.view">
+    <field name="name">sale.order.tree.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.sale_order_tree"/>
+    <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='state']" position="attributes">
+            <attribute name="column_invisible">1</attribute>
+        </xpath>
+        <!-- <xpath expr="//field[@name='state']" position="after">
+            <field name="stag_id" widget="badge" string="étape"/>
+        </xpath> -->
+         <xpath expr="//tree" position="attributes">
+            <attribute name="multi_edit">1</attribute>
+        </xpath>
+    </field>
+</record>
+
+    
+
+
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">view.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook" position="inside">
+    <page string="Suivi Client (OAE)">
+            <field name="client_followup" nolabel="1" widget="html"/>
+
+    </page>
+                </xpath>
+               <xpath expr="//notebook" position="inside">
+    <page string="Date référence">
+        <group>
+            <field name="original_create_date_date" string="Date de création originale"/>
+            <field name="create_date_oae" readonly="1"/>
+            <field name="request_date" readonly="1"/>
+            <field name="required_validated_date" readonly="1"/>
+            <field name="estimation_finalization_date" readonly="1"/>
+            <field name="validity_date" string="Date de la soumission" invisible="stag_id not in ['soumission', 'contrat', 'perdu', 'abandonnee']" readonly="1"/>
+            <field name="closing_date" string="Date de relance OAE" readonly="1"/>
+            <field name="guaranteed_price_date" invisible="stag_id not in ['soumission', 'contrat', 'perdu', 'abandonnee']" readonly="1"/>
+            <field name="contract_date" readonly="1"/>
+            <field name="contract_exp_date"/>
+            <!-- <field name="commitment_date_date"/> -->
+            <field name="date_de_construction"/>
+            <field name="write_date_date"/>
+            <!-- <field name="date_de_relance"/> -->
+        </group>
+    </page>
+
+    <!-- <page string="Contacts">
+        <field name="contact_lines" nolabel="1">
+            <tree editable="bottom" decoration-success="is_merchant" decoration-warning="not is_merchant">
+                <field name="contact_id" options="{'no_create': False, 'open_target': 'new'}"
+                               context="{
+                                   'form_view_ref': 'bsi_crm_custom.view_partner_child_contact_form_custom',
+                                   'default_parent_id': parent.partner_id
+                               }"/>
+                <field name="role_du_contact"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="role_du_contact"/> -->
+<!--                <field name="company_id"/>-->
+                <!-- <field name="is_delivery"/>
+                <field name="is_merchant"/>
+            </tree>
+        </field>
+    </page> -->
+    <page string="Documents">
+    <group>
+        <group>
+            <field name="sf_file_name" invisible="1"/>
+            <field name="cf_file_name" invisible="1"/>
+            <field name="soummision_non_finalise" filename="sf_file_name" widget="binary"/>
+
+            <label for="soummision_finalise" string="Soumission finalisé"/>
+            <div class="o_row">
+                <field name="soummision_finalise" filename="sf_file_name" widget="binary" invisible="1"/>
+                <button name="action_mfiles_apercu" 
+                        type="object" 
+                        string="Aperçu"
+                        class="btn-primary"
+                        icon="fa-eye"/>
+            </div>
+            
+            <label for="contrat_finalise" string="Contrat finalisé"/>
+            <div class="o_row">
+                <field name="contrat_finalise"
+                    filename="cf_file_name"
+                    widget="binary"
+                    invisible="1"/>
+                <button name="action_mfiles_contrat_apercu"
+                        type="object"
+                        string="Aperçu"
+                        class="btn-primary"
+                        icon="fa-eye"/>
+                
+            </div>
+        </group>
+    </group>
+</page>
+
+</xpath>
+
+<xpath expr="//group[@name='partner_details']" position="replace">
+    <group string="Information générale" colspan="2">
+        <group>
+            <field name="allowed_contacts" invisible="1"/>
+            <field name="partner_id" colspan="2" readonly="1"/>
+            <field name="partner_invoice_id" invisible="1"/>
+            <field name="customer_category" readonly="1"/>
+            <field name="customer_categ_id" readonly="1"/>
+            <field name="contact_id" options="{'no_create': True}" colspan="2"/>
+        </group>
+        <group>
+            <field name="paying_customer_id" colspan="2" readonly="1"/>
+<!--            <field name="available_contact_ids" invisible="1"/>-->
+            <field name="role_du_contact" readonly="1"/>
+            <field name="require_signature"/>
+            <field name="tag_ids" widget="many2many_tags"/>
+        </group>
+    </group>
+</xpath>
+
+
+            
+<xpath expr="//group[@name='order_details']" position="after">
+    <group name="sales_informations1" string="Information de vente" colspan="2">
+    <group>
+        <field name="payment_term_id" colspan="2" 
+       readonly=" [('stag_id', '!=', 'contrat')]"/>
+
+        <!-- <field name="commitment_date_date" colspan="2" readonly="1"/> -->
+        <field name="guaranteed_price_date" invisible="stag_id not in ['soumission', 'contrat', 'perdu', 'abandonnee']" colspan="2" readonly="1"/>
+        <field name="validity_date" string="Date de la soumission" invisible="stag_id not in ['soumission', 'contrat', 'perdu', 'abandonnee']" colspan="2" readonly="1"/>
+        <field name="required_validated_date" colspan="2" readonly="1"/>
+        <field name="date_de_construction" colspan="2" readonly="1"/>
+        <field name="write_date_date" colspan="2" readonly="1"/>
+    </group>
+    <group>
+        <field name="unity_number" colspan="2" readonly="1"/>
+        <field name="price_type" colspan="2" readonly="1"/>
+        <field name="large_scale_project" colspan="2" readonly="1"/>
+        <field name="classification" colspan="2" readonly="1"/>
+        <field name="annex_reason" colspan="2" readonly="1"/>
+        <field name="revision_reason" colspan="2"
+       readonly = "[('stag_id', 'not in', ['estimation', 'planification'])]"/>
+    </group>
+        
+    </group>
+</xpath>
+            <xpath expr="//group[@name='sales_informations1']" position="after">
+    <group string="Equipe en charge" colspan="2">
+        <group>
+        <field name="user_id" widget="many2one_avatar_user" readonly="1"/>
+        <field name="coord_rep_id" widget="many2one_avatar_user" readonly="1"/>
+        <field name="coord_rep_merchant_id" widget="many2one_avatar_user" string="Coordo marchand" readonly="1"/>
+        </group>
+        <group>
+        <field name="sales_director_id" widget="many2one_avatar_user" string="Directeur des ventes" readonly="1"/>
+        <field name="charge_de_projets" widget="many2one_avatar_user"/>
+        <field name="estimateur" widget="many2one_avatar_user" readonly="1"/>
+        </group>
+    </group>
+</xpath>
+        <xpath expr="//header/field[@name='state']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+<xpath expr="//div[@class='oe_title']" position="after">
+    <h2 class="row g-0 pb-3 pb-sm-4">
+        <div class="col-auto pb-2 pe-5 pb-md-0 w-100 w-sm-auto">
+            <label for="ue_total" class="oe_edit_only"/>
+            <div class="d-flex align-items-baseline">
+                <field name="ue_total"/>
+            </div>
+        </div>
+        <div class="col-auto pe-5">
+            <label for="probability" class="d-inline-block pe-2">Probabilité</label>
+            <div class="d-flex align-items-baseline">
+                <field name="probability" widget="float" class="oe_inline o_input_6ch"/>
+                <span class="oe_grey ps-2">%</span>
+            </div>
+        </div>
+
+        <div class="col-auto pe-5">
+            <label for="montant_soumissionne" class="d-inline-block pe-2">Montant Soumissionné</label>
+            <div class="d-flex align-items-baseline">
+                <field name="montant_soumissionne" widget="monetary" class="oe_inline o_input_6ch" readonly="1"/>
+            </div>
+        </div>
+    </h2>
+</xpath>
+
+            <xpath expr="//label[@for='require_payment']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+           <xpath expr="//page[@name='other_information']//field[@name='company_id']" position="attributes">
+    <attribute name="invisible">1</attribute>
+</xpath>
+            <xpath expr="//div[@id='require_payment']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='customer_signature']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='reference']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='client_order_ref']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='sale_info']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='sale_shipping']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- <xpath expr="//group[@name='sale_shipping']" position="inside">
+                <field name="original_create_date"/>
+                <field name="create_date"/>
+                <field name="request_date"/>
+                <field name="write_date"/>
+                <field name="required_validated_date"/>
+                <field name="estimation_finalization_date"/>
+                <field name="closing_date"/>
+                <field name="guaranteed_price_date"/>
+                <field name="contract_date"/>
+                <field name="date_de_relance"/>
+                <field name="date_de_construction"/>
+
+            </xpath> -->
+
+            <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                <attribute name="class" add="disabled" separator=" "/>
+                <attribute name="string">Gagner</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                <attribute name="class" add="disabled" separator=" "/>
+                <attribute name="string">Gagner</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+             <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="class" add="disabled" separator=" "/>
+                 <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='sales_person']/field[@name='user_id']" position="after">
+
+                <field name="parent_id" options="{'no_create': True}" readonly="1"/>
+                <field name="contrat" readonly="1"/>
+                <field name="passe_par_marchand" readonly="1"/>
+                <field name="is_internet_request" readonly="1"/>
+                <field name="fait_par_estimation" readonly="1"/>
+                <field name="note_estimateur" readonly="1"/>
+                <!-- <field name="lost_reason" invisible="not (stag_id == 'perdu')"/> -->
+                <field name="record_rep_id" widget="many2one_avatar_user"/>
+                <field name="validity"/>
+                <field name="consultation_date"/>
+                <field name="ue_mur" readonly="1"/>
+                <field name="ue_planchers" readonly="1"/>
+                <field name="ue_toitures" readonly="1"/>
+                  <!-- <field name="total_oae" string="Vendant soumissionné"/>-->
+                <!-- <field name="ue_total"/> -->
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="attributes">
+    <attribute name="readonly">1</attribute>
+</xpath>
+            <xpath expr="//group[@name='sales_person']/field[@name='user_id']" position="attributes">
+    <attribute name="invisible">1</attribute>
+</xpath>
+             <xpath expr="//field[@name='validity']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+             <xpath expr="//field[@name='pricelist_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='consultation_date']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            
+            <xpath expr="//field[@name='record_rep_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_lost" type="object" string="Perdu" class="btn-secondary" invisible="stag_id == 'perdu'"/>
+                <button name="action_abandoned" type="object" string="Abandonné" class="btn-secondary" invisible="stag_id == 'abandonnee'"/>
+                <field name="stag_id" widget="statusbar" options="{'clickable': '1'}" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="bsi_sale_view_inherit124" model="ir.ui.view">
+        <field name="name">bsi.sale.view.inherit124</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+           <xpath expr="//div[@class='oe_title']" position="replace">
+    <div class="oe_title">
+        <group>
+            <group>
+                <h1 class="text-nowrap">
+                    <field name="name" readonly="1"/>
+                </h1>
+            </group>
+            <group>
+                <label for="opportunity_id"/>
+                <h3>
+                    <field name="opportunity_id" string="Projet client" required="1" colspan="2"/>
+                </h3>
+            </group>
+        </group>
+    </div>
+</xpath>
+
+         </field>
+    </record>
+
+
+    <record id="view_sale_order_form_contacts_page" model="ir.ui.view">
+    <field name="name">sale.order.form.contacts.page</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//page[@name='other_information']" position="before">
+            <page string="Contacts" name="contacts">
+                <field name="contact_lines" nolabel="1">
+                    <tree editable="bottom"
+                          decoration-success="is_merchant"
+                          decoration-warning="not is_merchant">
+                        <field name="contact_id"
+                           options="{'no_create': False, 'open_target': 'new'}"
+                           context="{
+                               'form_view_ref': 'bsi_crm_custom.view_partner_child_contact_form_custom',
+                               'default_parent_id': parent.partner_id,
+                               'sale_order_contact_line_id': id,
+                               'use_contact_type': False
+                           }"/>
+                        <field name="role_du_contact"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="is_delivery"/>
+                        <field name="is_merchant"/>
+                    </tree>
+                </field>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+<!-- <record id="view_sale_order_filter_relance" model="ir.ui.view">
+    <field name="name">sale.order.filter.relance</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+    <field name="arch" type="xml">
+        <xpath expr="//search" position="inside">
+                <filter name="relance_last_week"
+                        string="Relance prévue Sem. Passées"
+                        domain="[('relance_week', '=', 'last')]"/>
+                <filter name="relance_this_week"
+                        string="Relance prévue Cette semaine"
+                        domain="[('relance_week', '=', 'current')]"/>
+                <filter name="relance_next_week"
+                        string="Relance prévue Sem. Futures"
+                        domain="[('relance_week', '=', 'next')]"/>
+            <separator/>
+        </xpath>
+    </field>
+</record> -->
+
+<record id="sale_order_inherit_list_view_1" model="ir.ui.view">
+    <field name="name">sale.order.list.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+            <xpath expr="//tree" position="inside">
+                <field name="allowed_contacts" column_invisible="1"/>
+                <field name="opportunity_id" string="Projet client" optional="show"/>
+                <field name="contact_id" optional="show"/>
+                <field name="paying_customer_id" optional="show"/>
+                <field name="customer_category" optional="show"/>
+                <field name="customer_categ_id" optional="hide"/>
+                <field name="date_de_construction" optional="hide"/>
+                <field name="required_validated_date" optional="hide"/>
+                <field name="large_scale_project" optional="hide"/>
+                <field name="validity_date" string="Date de la soumission" optional="show"/>
+                <field name="guaranteed_price_date" optional="show"/>
+                <field name="annex_reason" optional="hide"/>
+                <field name="revision_reason" optional="hide"/>
+                <field name="stag_id" optional="show"/>
+                <field name="contrat" optional="hide"/>
+                <field name="passe_par_marchand" optional="hide"/>
+                <field name="soumission_envoye" optional="show"/>
+                <field name="contrat_envoye" optional="show"/>
+                <field name="contrat_signe" optional="show"/>
+
+                <field name="coord_rep_id" optional="hide" force_save="1"/>
+                <field name="coord_rep_merchant_id" optional="hide" force_save="1"/>
+                <field name="sales_director_id" optional="hide"/>
+
+            </xpath>
+
+            <field name="name" position="attributes">
+                <attribute name="string"></attribute>
+            </field>
+
+            <field name="date_order" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+
+            <field name="commitment_date" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+
+            <field name="expected_date" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+
+            <field name="team_id" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+
+            <field name="amount_untaxed" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+
+            <field name="amount_tax" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+
+            <field name="amount_total" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+
+            <field name="invoice_status" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+
+            <field name="client_order_ref" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+    </field>
+</record>
+
+    <record id="sale_order_search_view_inherit" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_quotation']" position="attributes">
+                <attribute name="string">Mes soumissions</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='my_quotation']" position="after">
+                <filter string="Mes soumissions en cours" name="soumissions_en_cours" domain="[('user_id', '=', uid), ('stag_id', 'in', ['demande', 'planification', 'missing_info', 'estimation', 'a_configurer'])]"/>
+            </xpath>
+            <xpath expr="//filter[@name='sales']" position="attributes">
+                <attribute name="string">Contrat</attribute>
+                <attribute name="domain">[('stag_id', '=', 'contrat')]</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='sales']" position="after">
+                <filter string="Est perdu" name="quotation_lost" domain="[('stag_id', '=', 'perdu')]"/>
+                <filter string="Est abandonné" name="quotation_abandoned" domain="[('stag_id', '=', 'abandonnee')]"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="string">Soumission</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="opportunity_id" string="Projet"/>
+                <field name="contrat"/>
+                <field name="paying_customer_id"/>
+            </xpath>
+            <xpath expr="//filter[@name='filter_create_date']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- <xpath expr="//filter[@name='filter_create_date']" position="replace">
+                <filter string="Date de creation OAE" name="filter_create_date" date="create_date_oae"/>
+            </xpath> -->
+        </field>
+    </record>
+
+
+    <record id="sale_order_view_search_inherit_hide_date_groupby" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.hide.date.groupby</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='order_month']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="sale_order_view_search_inherit_contact_phone" model="ir.ui.view">
+    <field name="name">sale.order.search.inherit.contact.phone</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+    <field name="arch" type="xml">
+        <xpath expr="//search" position="inside">
+            <field name="phone_mobile_search" string="Téléphone contact"/>
+            <group expand="0" string="Regrouper par">
+                <filter string="status de l'étape"
+                        name="group_by_stage_id"
+                        domain="[]"
+                        context="{'group_by': 'stag_id'}"/>
+                
+                <filter string="Date de la soumission"
+                        name="group_by_validity_date"
+                        domain="[]"
+                        context="{'group_by': 'validity_date'}"/>
+                
+                <filter string="Date de contrat"
+                        name="group_by_contract_date"
+                        domain="[]"
+                        context="{'group_by': 'contract_date'}"/>
+                
+                <filter string="Date de la demande"
+                        name="group_by_request_date"
+                        domain="[]"
+                        context="{'group_by': 'request_date'}"/>
+                
+                <filter string="Catégorie"
+                        name="group_by_customer_category"
+                        domain="[]"
+                        context="{'group_by': 'customer_category'}"/>
+                
+                <filter string="Directeur des ventes"
+                        name="group_by_sales_director_id"
+                        domain="[]"
+                        context="{'group_by': 'sales_director_id'}"/>
+                <filter string="Type de prix"
+                        name="group_by_price_type"
+                        domain="[]"
+                        context="{'group_by': 'price_type'}"/>
+                <filter string="Représentant FC"
+                        name="group_by_coord_rep_id"
+                        domain="[]"
+                        context="{'group_by': 'coord_rep_id'}"/>
+                <filter string="Coordo Marchand"
+                        name="group_by_coord_rep_merchant_id"
+                        domain="[]"
+                        context="{'group_by': 'coord_rep_merchant_id'}"/>
+                <filter string="Projet d'envergure"
+                        name="group_by_large_scale_project"
+                        domain="[]"
+                        context="{'group_by': 'large_scale_project'}"/>
+                <filter string="Projet Client"
+                        name="group_by_opportunity_id"
+                        domain="[]"
+                        context="{'group_by': 'opportunity_id'}"/>
+                <filter string="Passé par un marchand"
+                        name="group_by_passe_par_marchand"
+                        domain="[]"
+                        context="{'group_by': 'passe_par_marchand'}"/>
+                <filter string="Estimateur"
+                        name="group_by_estimateur"
+                        domain="[]"
+                        context="{'group_by': 'estimateur'}"/>
+            </group>
+
+        </xpath>
+    </field>
+</record>
+
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="view_mode">tree,kanban,hierarchy,form,calendar,pivot,graph,activity</field>
+        <field name="context">{'search_default_soumissions_en_cours': 1,'create': False}</field>
+    </record>
+
+    <menuitem id="menu_view_sale_company"
+              name="Clients Sociétés"
+              parent="sale.sale_order_menu"
+              action="action_res_partner_societe"/>
+
+    <menuitem id="menu_view_sale_individual"
+              name="Clients Particuliers"
+              parent="sale.sale_order_menu"
+              action="action_res_partner_particulier" />
+
+      <menuitem id="sale.res_partner_menu" 
+          active="False"/>
+
+</odoo>

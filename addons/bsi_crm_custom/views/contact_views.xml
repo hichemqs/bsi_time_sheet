@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_res_partner_filter_inherit" model="ir.ui.view">
+    <field name="name">res.partner.search.assigned</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_res_partner_filter"/>
+    <field name="arch" type="xml">
+        <xpath expr="//search" position="inside">
+            <filter string="Mes Clients" name="assigned_to_me" domain="[('user_id', '=', uid)]"/>
+        </xpath>
+    </field>
+</record>
+
+
+    <record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="domain">[]</field>
+    </record>
+
+    <record id="action_res_partner_societe" model="ir.actions.act_window">
+        <field name="name">Sociétés</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('is_company', '=', True)]</field>
+        <field name="context">{'search_default_assigned_to_me': 1, 'default_is_company': 1}</field>
+    </record>
+
+    <record id="action_res_partner_particulier" model="ir.actions.act_window">
+        <field name="name">Particuliers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('parent_id', '=', False), '|', ('customer_categ_id.type', '=', 'person'), ('customer_categ_id', '=', False)]</field>
+        <field name="context">{'search_default_assigned_to_me': 1}</field>
+    </record>
+
+    <menuitem 
+        id="menu_res_partner_societe" 
+        name="Sociétés" 
+        parent="contacts.menu_contacts" 
+        action="action_res_partner_societe"
+        sequence="1"
+    />
+
+    <menuitem 
+        id="menu_res_partner_particulier" 
+        name="Particuliers" 
+        parent="contacts.menu_contacts" 
+        action="action_res_partner_particulier"
+        sequence="1"
+    />
+
+</odoo>

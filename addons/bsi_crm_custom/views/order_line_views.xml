@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_order_form_remove_order_lines" model="ir.ui.view">
+            <field name="name">sale.order.form.remove.order.lines</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='order_lines']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            </field>
+        </record>
+
+        <record id="sale_order_form_remove_optional_products" model="ir.ui.view">
+            <field name="name">sale.order.form.remove.optional.products</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_management.sale_order_form_quote"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='optional_products']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,43 @@
+<odoo>
+    <record id="mail_activity_view_search_inherit_custom" model="ir.ui.view">
+        <field name="name">mail.activity.view.search.inherit.custom</field>
+        <field name="model">mail.activity</field>
+        <field name="inherit_id" ref="mail.mail_activity_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <filter string="Nom du Document" name="group_by_res_name" context="{'group_by': 'res_name'}"/>
+                <filter string="Date d'échéance (Semaine)" name="group_by_date_deadline_week" context="{'group_by': 'date_deadline:week'}"/>
+            </xpath>
+
+            <xpath expr="//search" position="inside">
+                <filter string="Soumissions" name="filter_sale_orders" domain="[('res_model','=','sale.order')]"/>
+                <filter string="Clients" name="filter_clients" domain="[('res_model','=','res.partner')]"/>
+                <filter string="Projets" name="filter_crm_leads" domain="[('res_model','=','crm.lead')]"/>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="bsi_crm_custom.action_my_activities" model="ir.actions.act_window">
+        <field name="context">
+            {
+                'search_default_group_by_date_deadline_week': 1,
+                'search_default_filter_sale_orders': 1,
+                'search_default_filter_clients': 1,
+                'search_default_filter_crm_leads': 1,
+            }
+        </field>
+    </record>
+
+    <record id="view_crm_case_opportunities_filter_inherit" model="ir.ui.view">
+        <field name="name">crm.case.opportunities.filter.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='assigned_to_me']" position="attributes">
+                <attribute name="string">Mes projets client</attribute>
+                <attribute name="domain">["|", ("user_id", "=", uid), ("assigned_ids", "in", uid)]</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

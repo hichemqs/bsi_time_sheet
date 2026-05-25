@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//h2" position="replace">
+        <h2 class="mt-2">
+            <span>Soumission # </span>
+            <span t-field="doc.name">SO0000</span>
+        </h2>
+    </xpath>
+    <xpath expr="//h2" position="before">
+        <h4 class="mt-4" t-if="doc.contrat">
+            <span>Contrat : </span>
+            <span t-field="doc.contrat"/>
+        </h4>
+    </xpath>
+    <xpath expr="//t[@t-set='address']/div[@t-field='doc.partner_id']" position="before">
+        <h5><span>Facturer à : </span></h5>
+    </xpath>
+    <xpath expr="//t[@t-set='address']/div[@t-field='doc.partner_id']" position="after">
+        <t t-if="doc.paying_customer_id and doc.paying_customer_id != doc.partner_id">
+            <h5 class="mt-2"><span>Client final : </span></h5>
+            <div t-field="doc.paying_customer_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </t>
+    </xpath>
+    <xpath expr="//div[@t-if='doc.user_id.name']/strong" position="replace">
+        <strong>Représentant:</strong>
+    </xpath>
+    <xpath expr="//div[@t-if='doc.date_order']" position="replace">
+        <div t-if="doc.date_order" class="col-auto col-3 mw-100 mb-2" name="informations_date">
+            <strong>Date du contrat:</strong><br/>
+            <span class="m-0" t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}">2023-12-31</span>
+        </div>
+    </xpath>
+    <xpath expr="//table[hasclass('o_main_table')]" position="replace">
+        <table class="table table-sm o_main_table table-borderless mt-4">
+            <thead style="display: table-row-group">
+                <tr>
+                    <th name="th_name" class="text-start">Contrat</th>
+                    <th name="th_amount_before_tax" class="text-end">Montant avant taxes</th>
+                    <th name="th_taxes" class="text-end">Taxes</th>
+                    <th name="th_amount_total" class="text-end">Montant total</th>
+                </tr>
+            </thead>
+            <tbody class="sale_tbody">
+                <tr>
+                    <td class="text-start">
+                        <span t-field="doc.contrat"/>
+                    </td>
+                    <td class="text-end o_price_total">
+                        <span t-field="doc.total_oae"/>
+                    </td>
+                    <td class="text-end o_price_total">
+                        <span t-field="doc.total_tax_oae"/>
+                    </td>
+                    <td class="text-end o_price_total">
+                        <span t-field="doc.total_with_taxes_oae"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </xpath>
+    <xpath expr="//div[@name='so_total_summary']" position="replace"/>
+</template>
+</odoo>

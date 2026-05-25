@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_inherit" model="ir.ui.view">
+        <field name="name">view.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='job_title']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[@id='o_work_employee_main']" position="inside">
+                <separator/>
+                <group>
+                    <field name="date_embauche"/>
+                    <field name="date_anciennete"/>
+                    <field name="justification_anciennete"/>
+                    <field name="deuxieme_niveau" invisible="1"/>
+                    <field name="se_premier_niveau_id"/>
+                    <field name="se_deuxieme_niveau_id" invisible="not deuxieme_niveau"/>
+                    <field name="type_main_oeuvre"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//page[@name='personal_information']" position="inside">
+                <separator/>
+                <group>
+                    <field name="grandeur_vetements"/>
+                    <field name="contraintes_physiques"/>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']//field[@name='private_phone']" position="after">
+                <field name="mobile"/>
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']" position="inside">
+                <group>
+                    <field name="type_emploi"/>
+                    <field name="salaire"/>
+                    <field name="poste_vacants_budgete"/>
+                    <field name="outil_collecte_heures" invisible="salaire in ['fix', False]"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

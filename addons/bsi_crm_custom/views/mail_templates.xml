@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="message_user_assigned_inherit" inherit_id="mail.message_user_assigned">
+        <xpath expr="//span[2]" position="replace">
+            <span style="margin-top: 8px;">
+                <t t-if="object._name =='sale.order'">
+                    Vous avez été assigné à la soumission
+                </t>
+                <t t-else="">
+                    You have been assigned to the <t t-esc="model_description or 'document'"/>
+                </t>
+                <t t-esc="object.display_name"/>.
+            </span>
+        </xpath>
+    </template>
+</odoo>

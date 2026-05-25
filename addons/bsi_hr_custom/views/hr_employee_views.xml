@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_inherit" model="ir.ui.view">
+        <field name="name">view.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="priority">25</field>
+        <field name="arch" type="xml">
+            <xpath expr="(//field[@name='company_id'])[2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='job_id']" position="attributes">
+                <attribute name="domain">[('sector_id', '=', sector_id)]</attribute>
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']//group[@name='active_group']" position="inside">
+                <field name="bdrh_id"/>
+            </xpath>
+
+            <xpath expr="//field[@name='department_id']" position="attributes">
+                <attribute name="domain">['|', ('sector_id', '=', sector_id), ('sector_id', '=', False)]</attribute>
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="before">
+                <field name="company_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                <field name="sector_id" options="{'no_create': True, 'no_create_edit': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="attributes">
+                <attribute name="context">{'show_dep_code': 1}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="attributes">
+                <attribute name="options">{'no_create': True, 'no_create_edit': True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='job_id']" position="attributes">
+                <attribute name="options">{'no_create': True, 'no_create_edit': True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">Localisation</attribute>
+            </xpath>
+			<xpath expr="//field[@name='coach_id']" position="replace">
+				<field name="coach_id" string="Supérieur fonctionnel" widget="many2one_avatar_user"/>
+				<field name="departure_date" invisible="active" string="Date de terminaison"/>
+			</xpath>
+            <xpath expr="//field[@name='sector_id']" position="after">
+                <label for="barcode"/>
+                <div class="o_row">
+                    <field name="barcode" force_save="1"/>
+                    <button string="Regénérer" type="object" class="btn btn-link" name="generate_noemploye" groups="bsi_hr_custom.group_regenerate_empl_code" invisible="not id"
+                            confirm="Êtes vous sur de vouloir regénérer le code de l'employé?"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="string">Supérieur immédiat</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_title')]//h2" position="replace"/>
+            <xpath expr="//div[@id='o_work_employee_main']/group[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@id='o_work_employee_main']/group[4]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='work_email']" position="after">
+                <field name="gender"/>
+                <field name="birthday"/>
+                <field name="date_embauche"/>
+                <field name="tele_travail"/>
+                <field name="type_emploi"/>
+                <field name="employee_type" position="move"/>
+                <field name="grandeur_vetements"/>
+            </xpath>
+
+            <xpath expr="//group" position="replace">
+                    <group string="Coordonnées professionnelles">
+    <group>
+        <field name="mobile" string="# de cellulaire professionnel"/>
+        <field name="work_phone" string="# téléphone professionnel"/>
+        <field name="work_email" string="Courriel professionnel"/>
+        <field name="company_id" string="Localisation"/>
+    </group>
+    <group>
+        <field name="allowed_sector_ids" invisible="1"/>
+        <field name="sector_id" string="Secteur"/>
+        <label for="barcode"/>
+        <div class="o_row">
+            <field name="barcode" force_save="1"/>
+            <button string="Regénérer"
+                    type="object"
+                    class="btn btn-link"
+                    name="generate_noemploye"
+                    groups="bsi_hr_custom.group_regenerate_empl_code"
+                    invisible="not id"
+                    confirm="Êtes-vous sûr de vouloir regénérer le code de l'employé?"/>
+        </div>
+        <field name="department_id" context="{'show_dep_code': 1}" options="{'no_create': True, 'no_create_edit': True}" domain="['|', ('sector_id', '=', sector_id), ('sector_id', '=', False)]"/>
+        <field name="code_centre_cout"/>
+<!--        <field name="description_centre_cout"/>-->
+    </group>
+</group>
+                    <group string="Informations d'emploi">
+                        <group>
+                        <field name="date_embauche" string="Date d'embauche"/>
+                        <field name="type_emploi" string="Type d'emploi"/>
+                        <field name="employee_type" string="Type d'employé"/>
+                        <field name="job_id" string="Poste de travail"/>
+                        <field name="code_metier" string="Code du métier"/>
+                            </group>
+                        <group>
+                        <field name="type_main_oeuvre" string="Type de main-d'œuvre"/>
+                        <field name="parent_id"/>
+                        <field name="coach_id" domain="[('is_functional_supervisor', '=', True)]"/>
+                        <field name="departure_date" invisible="active" string="Date de terminaison"/>
+                            </group>
+                    </group>
+
+                    <group string="Informations personnelles">
+                        <group>
+                        <field name="birthday" string="Date de naissance"/>
+                        <field name="gender" string="Genre"/>
+                        </group>
+                <group>
+                        <field name="grandeur_vetements" string="Grandeur de vêtements"/>
+                </group>
+                    </group>
+            </xpath>
+
+            <!-- <xpath expr="//field[@name='job_id']" position="after">
+                <field name="code_metier"/>
+                <field name="type_main_oeuvre"/>
+            </xpath> -->
+
+            <xpath expr="//div[@id='o_work_employee_main']" position="inside">
+                <separator/>
+                <group string="Autre">
+                    <field name="is_replacement_needed"/>
+                    <field name="replacement_date" invisible="not is_replacement_needed"/>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']" position="attributes">
+                <attribute name="string">HR Settings</attribute>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']//field[@name='private_phone']" position="after">
+                <field name="private_email" position="move"/>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']//field[@name='private_street2']" position="replace"/>
+            <xpath expr="//page[@name='hr_settings']" position="inside">
+                <group>
+                    <!--<field name="salaire"/>-->
+                    <!--<field name="poste_vacants_budgete"/>-->
+                    <!--<field name="outil_collecte_heures" invisible="salaire in ['fix', False]"/>-->
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='private_state_id']" position="attributes">
+                <attribute name="placeholder">Province...</attribute>
+            </xpath>
+            <xpath expr="//field[@name='private_email']" position="attributes">
+                <attribute name="string"/>
+            </xpath>
+            <xpath expr="//field[@name='private_phone']" position="attributes">
+
+                <attribute name="string"># de cellulaire personnel</attribute>
+            </xpath>
+            <xpath expr="//page//field[@name='private_phone']" position="after">
+                <field name="private_telephone" string="# de téléphone personnel"/>
+            </xpath>
+
+            <xpath expr="//page[@name='hr_settings']//group[@name='active_group']/field[@name='user_id']" position="after">
+                <field name="pin"/>
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']//group[@name='active_group']/field[@name='user_id']" position="attributes">
+                <attribute name="string" />
+            </xpath>
+
+
+             <xpath expr="//page[@name='hr_settings']" position="after">
+                 <page string="Événement">
+                     <field name="hr_event_ids">
+                         <tree editable="bottom">
+                             <field name="event_type_id"/>
+                             <field name="date"/>
+                             <field name="applicant_id"/>
+                             <field name="name"/>
+                         </tree>
+                     </field>
+                 </page>
+                 <page string="Notes">
+                     <field name="note" widget="html"/>
+                 </page>
+             </xpath>
+
+             <xpath expr="//field[@name='bank_account_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+             </xpath>
+
+             <xpath expr="//field[@name='private_car_plate']" position="attributes">
+                <attribute name="invisible">1</attribute>
+             </xpath>
+
+             <xpath expr="//page[@name='personal_information']//group[2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+             </xpath>
+
+             <xpath expr="//page[@name='personal_information']//group[4]" position="attributes">
+                <attribute name="invisible">1</attribute>
+             </xpath>
+
+             <xpath expr="//page[@name='personal_information']//group[5]" position="attributes">
+                <attribute name="invisible">1</attribute>
+             </xpath>
+
+             <xpath expr="//page[@name='hr_settings']//group[@name='identification_group']" position="attributes">
+                <attribute name="invisible">1</attribute>
+             </xpath>
+             <xpath expr="//page[@name='received_badges']" position="attributes">
+                <attribute name="invisible">1</attribute>
+             </xpath>
+             <xpath expr="(//page[@name='public'])[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+             </xpath>
+
+<!--             <xpath expr="(//page[@name='public'])[2]" position="attributes">-->
+<!--                <attribute name="invisible">1</attribute>-->
+<!--             </xpath>-->
+             <!-- For a Future Version, instead of PUBLIC 1 and PUBLIC 2
+             <xpath expr="//page[@name='skills_resume']" position="attributes">
+                <attribute name="invisible">1</attribute>
+             </xpath>-->
+        </field>
+    </record>
+
+    <record id="view_employee_tree_inherit" model="ir.ui.view">
+        <field name="name">view.employee.tree.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="export_xlsx">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+<record id="view_hr_hourly_cost_view_form_inherit" model="ir.ui.view">
+    <field name="name">view.hr.hourly.cost.inherit</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr_hourly_cost.view_employee_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='hourly_cost']/ancestor::group[1]" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+    </field>
+</record>
+
+</odoo>

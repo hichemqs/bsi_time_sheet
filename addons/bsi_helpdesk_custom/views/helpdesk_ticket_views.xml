@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ticket_view_form_inherit" model="ir.ui.view">
+        <field name="name">ticket.view.form.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+             <xpath expr="//field[@name='channel_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="string">Nom du demandeur</attribute>
+            </xpath>
+            <xpath expr="//field[@name='priority']" position="after">
+                <field name="no_contract"/>
+                <field name="request_via"/>
+                <field name="requester_title"/>
+                <field name="requester_phone"/>
+                <field name="product_service_type"/>
+                <field name="contact_person"/>
+                <field name="contact_person_title"/>
+                <field name="contact_person_email"/>
+                <field name="site_stage"/>
+                <field name="problem_type"/>
+            </xpath>
+            <xpath expr="//page[@name='description']" position="after">
+                <page string="Analyse" name="analyse">
+                    <group>
+                        <group>
+                            <field name="preliminary_cause"/>
+                            <field name="cost_responsibility"/>
+                            <field name="billing_to"/>
+                            <field name="solution"/>
+                        </group>
+                        <group>
+                            <field name="solution_department"/>
+                            <field name="repair_cost_estimate"/>
+                            <field name="repair_cost_justification"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

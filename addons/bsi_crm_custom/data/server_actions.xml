@@ -1,0 +1,84 @@
+<odoo>
+    <record id="action_toggle_soumission_envoye" model="ir.actions.server">
+        <field name="name">Soumission Envoyé</field>
+        <field name="model_id" ref="sale.model_sale_order"/> 
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">records.action_toggle_soumission_envoye()</field>
+    </record>
+
+    <record id="action_toggle_contrat_envoye" model="ir.actions.server">
+        <field name="name">Contrat Envoyé</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">records.action_toggle_contrat_envoye()</field>
+    </record>
+
+    <record id="action_toggle_contrat_signe" model="ir.actions.server">
+        <field name="name">Contrat Signé</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">records.action_toggle_contrat_signe()</field>
+    </record>
+
+    <record id="action_set_to_quotation" model="ir.actions.server">
+        <field name="name">Revenir à l’état de soumission</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">records.action_remove_lost()</field>
+    </record>
+    
+    <record id="action_mark_lost_oae" model="ir.actions.server">
+        <field name="name">Perdu</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">records.action_lost()</field>
+    </record>
+
+    <record id="action_mark_abandoned_oae" model="ir.actions.server">
+        <field name="name">Abandonné</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">records.action_abandoned()</field>
+    </record>
+
+<record id="action_open_close_partner_server" model="ir.actions.server">
+    <field name="name">Open/Close Partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="binding_model_id" ref="base.model_res_partner"/>
+    <field name="binding_view_types">list</field>
+    <field name="state">code</field>
+    <field name="code">
+action = {
+    'name': 'Closure Reason',
+    'type': 'ir.actions.act_window',
+    'views': [[False, 'form']],
+    'view_mode': 'form',
+    'res_model': 'partner.closure.reason.wizard',
+    'context': {'default_partner_ids': records.ids},
+    'target': 'new',
+}
+    </field>
+</record>
+
+<record id="action_set_category_c_for_uncategorized" model="ir.actions.server">
+    <field name="name">Category C </field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="binding_model_id" ref="base.model_res_partner"/>
+    <field name="binding_view_types">list</field>
+    <field name="state">code</field>
+    <field name="code">
+records = env['res.partner'].sudo().search([
+    ('is_company', '=', False),
+    ('customer_category', '=', 'uncategorized'),
+])
+records.write({'customer_category': 'c'})
+    </field>
+</record>
+
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_job_form_inherit" model="ir.ui.view">
+        <field name="name">view.hr.job.form.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='contract_type_id']" position="after">
+                <field name="code_metier"/>
+                <field name="is_critical_position"/>
+                <field name="is_key_position"/>
+                <field name="is_external_position"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_hr_job_survey_form_inherit" model="ir.ui.view">
+        <field name="name">view.hr.job.survey.form.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_job_survey"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='interviewer_ids']" position="after">
+                <field name="is_functional_supervisor"/>
+                <field name="is_manager"/>
+                <field name="type_main_oeuvre"/>
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="replace">
+                <field name="sector_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_view_hr_job_tree_inherit" model="ir.ui.view">
+        <field name="name">view.hr.job.tree.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='department_id']" position="replace">
+                <field name="sector_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
