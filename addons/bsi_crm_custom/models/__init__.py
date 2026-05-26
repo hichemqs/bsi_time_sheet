@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from . import res_partner
 from . import customer_category
+from . import res_partner
 from . import hr_job
 from . import partner_closure_reason
 from . import contact_categorization_history

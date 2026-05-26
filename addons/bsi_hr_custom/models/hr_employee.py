@@ -170,7 +170,7 @@ class HrEmployee(models.Model):
     replacement_date = fields.Date(string="Date de remplacement",tracking=True)
     hr_event_ids = fields.One2many('hr.event', 'employee_id', string="Événement",tracking=True)
     department_id = fields.Many2one('hr.department', string='Département', check_company=False, tracking=True)
-    sector_id = fields.Many2one('hr.sector', string='Secteur',tracking=True ,required=True)
+    sector_id = fields.Many2one('hr.sector', string='Secteur',tracking=True ,required=False)
     job_id = fields.Many2one(check_company=False, tracking=True)
     note = fields.Html(string='Note', translate=True,tracking=True)
     work_email = fields.Char(tracking=True)
