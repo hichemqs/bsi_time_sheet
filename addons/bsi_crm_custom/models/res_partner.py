@@ -19,7 +19,7 @@ class ResPartner(models.Model):
     oae_id = fields.Integer('oae')
     sales_director_id = fields.Many2one('hr.employee', 'Sales Director', compute='_compute_sales_director', store=True)
     sales_director_user_id = fields.Many2one(string='Sales director user', related='sales_director_id.user_id')
-    customer_categ_id = fields.Many2one('res.partner.customer.category',string="Type de client",domain="[('type', '=', company_type)]",required=True, default=lambda self: self._default_customer_categ_id())
+    customer_categ_id = fields.Many2one('res.partner.customer.category',string="Type de client",domain="[('type', '=', company_type)]",required=False, default=lambda self: self._default_customer_categ_id())
     potential_recurrence = fields.Boolean(string='Potential Recurrence', tracking=True)
     is_proportion_above_80 = fields.Boolean('Proportion allocated to Barrette > 80% ?', tracking=True)
     customer_category = fields.Selection([
