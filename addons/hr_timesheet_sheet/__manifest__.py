@@ -25,6 +25,5 @@
         "views/hr_employee_views.xml",
         "views/account_analytic_line_views.xml",
         "views/res_config_settings_views.xml",
-        "views/soumission_views.xml",
     ],
 }
